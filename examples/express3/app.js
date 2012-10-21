@@ -7,11 +7,20 @@ var express = require('express')
   , oauth2 = require('./oauth2')
   , user = require('./user')
   , util = require('util')
-  
-  
+  , http = require('http')
+  , https = require('https') 
+  , sslCert = require('./private/ssl_cert')
+
+
+var options = {
+  key: sslCert.privateKey,
+  cert: sslCert.certificate
+};
+
 // Express configuration
   
-var app = express.createServer();
+var app = express();
+
 app.set('view engine', 'ejs');
 app.use(express.logger());
 app.use(express.cookieParser());
@@ -50,4 +59,6 @@ app.get('/api/userinfo', user.info);
 
 app.get('/callback', site.callbackPage);
 
-app.listen(3000);
+// app.listen(3000);
+http.createServer(app).listen(9080);
+https.createServer(options, app).listen(9443);
