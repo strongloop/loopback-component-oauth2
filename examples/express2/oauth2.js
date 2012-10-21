@@ -72,25 +72,23 @@ server.exchange(oauth2orize.exchange.code(function(client, code, redirectURI, do
 
       db.authorizationCodes.delete(code, function(err) {
         if(err) { return done(err); }
-        var token = utils.uid(256);
-        db.accessTokens.save(token, authCode.userID, authCode.clientID, function(err) {
-          if (err) { return done(err); }
-            done(null, token);
-        });
-      });
+    var token = utils.uid(256)
+    db.accessTokens.save(token, authCode.clientID, authCode.userID, authCode.scopes, function(err) {
+
+      if (err) { return done(err); }
+      done(null, token);
+    });
   });
 }));
 
 
-server.grant(oauth2orize.grant.token(function(client, redirectURI, user, ares, done) {
-  var token = utils.uid(16)
-  
-  db.accessTokens.save(token, client.id, redirectURI, user.id, function(err) {
+server.grant(oauth2orize.grant.token(function(client, user, ares, done) {
+  var token = utils.uid(16);
+  db.accessTokens.save(token, client.id, user.id, ares.scope, function(err) {
     if (err) { return done(err); }
     done(null, token);
   });
 }));
-
 
 
 // user authorization endpoint
