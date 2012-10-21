@@ -81,6 +81,47 @@ server.exchange(oauth2orize.exchange.code(function(client, code, redirectURI, do
   });
 }));
 
+server.exchange(oauth2orize.exchange.password(function(client, username, password, scope, done) {
+    db.users.findByUsername(username, function(err, user) {
+      if (err) { return done(err); }
+      if (!user) { return done(null, false); }
+      if (user.password != password) { return done(null, false); }
+      var token = utils.uid(256);
+      db.accessTokens.save(token, client.id, user.id, scope, function(err) {
+        if (err) { return done(err); }
+        done(null, token);
+    });
+  });
+}));
+
+
+server.exchange(oauth2orize.exchange.clientCredentials(function(client, scope, done) {
+    db.clients.findByClientId(clientID, function(err, client) {
+        if(err) {
+            return done(err);
+        }
+        var token = utils.uid(256);
+        db.accessTokens.save(token, client.clientId, null, scope, function(err) {
+            if (err) { return done(err); }
+            done(null, token);
+        });
+    });
+}));
+
+server.exchange(oauth2orize.exchange.refreshToken(function(client, refreshToken, scope, done) {
+    db.clients.findByClientId(client.clientID, function(err, client) {
+        if(err) {
+            return done(err);
+        }
+        var token = utils.uid(256);
+        db.accessTokens.save(token, client.clientId, null, scope, function(err) {
+            if (err) { return done(err); }
+            done(null, token);
+        });
+    });
+}));
+
+
 
 server.grant(oauth2orize.grant.token(function(client, user, ares, done) {
   var token = utils.uid(16);
