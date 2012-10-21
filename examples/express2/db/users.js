@@ -1,25 +1,21 @@
-var users = [
-    { id: '1', username: 'bob', password: 'secret', name: 'Bob Smith' },
-    { id: '2', username: 'joe', password: 'password', name: 'Joe Davis' }
-];
+var schema = require('./mongo_schema');
 
+var user = new schema.User({id: "bob", name: "bob", password: "secret"});
+user.save( function (err) {
+  if (err) {
+      console.log(err);
+  } 
+  else {  
+      console.log("User created: " + JSON.stringify(user));
+  }
+});
 
 exports.find = function(id, done) {
-  for (var i = 0, len = users.length; i < len; i++) {
-    var user = users[i];
-    if (user.id === id) {
-      return done(null, user);
-    }
-  }
-  return done(null, null);
+  console.log("find("+ id +")");
+  schema.User.findOne({id: id}, done);
 };
 
 exports.findByUsername = function(username, done) {
-  for (var i = 0, len = users.length; i < len; i++) {
-    var user = users[i];
-    if (user.username === username) {
-      return done(null, user);
-    }
-  }
-  return done(null, null);
+  console.log("findByUsername("+ username +")");
+  schema.User.findOne({name: username}, done);
 };

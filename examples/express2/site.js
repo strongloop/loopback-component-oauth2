@@ -26,3 +26,7 @@ exports.account = [
     res.render('account', { user: req.user });
   }
 ]
+
+exports.callbackPage = function(req, res) {
+  res.render('callback');
+};

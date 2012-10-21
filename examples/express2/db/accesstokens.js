@@ -1,12 +1,15 @@
-var tokens = {};
-
+var schema = require('./mongo_schema');
 
 exports.find = function(key, done) {
-  var token = tokens[key];
-  return done(null, token);
+    schema.OAuthToken.findOne({accessToken: key}, done);
 };
 
 exports.save = function(token, userID, clientID, done) {
-  tokens[token] = { userID: userID, clientID: clientID };
-  return done(null);
+  console.log("Saving " + token);
+  var oauthToken = new schema.OAuthToken ({
+    accessToken: token,
+    resourceOwner: userID,
+    clientId: clientID 
+  });
+  oauthToken.save(done);
 };

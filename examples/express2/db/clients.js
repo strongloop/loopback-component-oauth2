@@ -1,24 +1,33 @@
-var clients = [
-    { id: '1', name: 'Samplr', clientId: 'abc123', clientSecret: 'ssh-secret' }
-];
+var schema = require('./mongo_schema');
 
-
-exports.find = function(id, done) {
-  for (var i = 0, len = clients.length; i < len; i++) {
-    var client = clients[i];
-    if (client.id === id) {
-      return done(null, client);
-    }
-  }
-  return done(null, null);
+exports.find = function(key, done) {
+    schema.ClientRegistration.findOne({id: key}, done);
 };
 
-exports.findByClientId = function(clientId, done) {
-  for (var i = 0, len = clients.length; i < len; i++) {
-    var client = clients[i];
-    if (client.clientId === clientId) {
-      return done(null, client);
-    }
-  }
-  return done(null, null);
+exports.save = function(name, email, description, url, iconURL, redirectURIs, type, userId, done) {
+
+    var clientId = "abc123";
+    var clientSecret = "ssh-secret";
+
+    var client = new schema.ClientRegistration ({
+    clientId: clientId,
+    clientSecret: clientSecret,
+    defaultTokenType: "Bearer",
+    accessLevel: 1, 
+    disabled: false,
+    name: name,
+    email: email,
+    description: description,
+    url: url,
+    iconURL: iconURL,
+    redirectURIs: redirectURIs,
+    type: "CONFIDENTIAL",
+    userId: userId,
+  });
+  client.save(done);
 };
+
+exports.findByClientId = function(clientID, done) {
+    schema.ClientRegistration.findOne({clientId: clientID}, done);
+};
+

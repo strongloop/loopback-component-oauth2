@@ -82,6 +82,16 @@ server.exchange(oauth2orize.exchange.code(function(client, code, redirectURI, do
 }));
 
 
+server.grant(oauth2orize.grant.token(function(client, redirectURI, user, ares, done) {
+  var token = utils.uid(16)
+  
+  db.accessTokens.save(token, client.id, redirectURI, user.id, function(err) {
+    if (err) { return done(err); }
+    done(null, token);
+  });
+}));
+
+
 
 // user authorization endpoint
 //

@@ -48,4 +48,6 @@ app.post('/oauth/token', oauth2.token);
 
 app.get('/api/userinfo', user.info);
 
+app.get('/callback', site.callbackPage);
+
 app.listen(3000);

@@ -1,14 +1,18 @@
-var codes = {};
-
+var schema = require('./mongo_schema');
 
 exports.find = function(key, done) {
-  var code = codes[key];
-  return done(null, code);
+    schema.OAuthAuthorizationCode.findOne({code: key}, done);
 };
 
 exports.save = function(code, clientID, redirectURI, userID, done) {
-  codes[code] = { clientID: clientID, redirectURI: redirectURI, userID: userID };
-  return done(null);
+  console.log("Saving " + code);
+  var oauthCode = new schema.OAuthAuthorizationCode ({
+    code: code,
+    redirectURI: redirectURI,
+    resourceOwner: userID,
+    clientId: clientID
+  });
+  oauthCode.save(done);
 };
 
 exports.delete = function(key, done) {
