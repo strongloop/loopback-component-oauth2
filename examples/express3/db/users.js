@@ -15,10 +15,10 @@ exports.findByUsername = function(username, done) {
 };
 
 exports.save = function(id, username, password, done) {
-    console.log("users.save( " + username + ")");
+    console.log("users.save(" + username + ")");
     var user = new schema.User({
         id : id,
-        username : username,
+        name : username,
         password : password
     });
     user.save(done);
