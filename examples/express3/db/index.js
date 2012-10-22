@@ -10,5 +10,4 @@ exports.authorizationCodes = require('./authorizationcodes');
 exports.users.register("001", "bob", "secret");
 exports.users.register("002", "joe", "password");
 
-exports.clients.register("abc123", "ssh-secret", "Test App",
-		"abc123@example.com", "Abc 123", "bob");
+exports.clients.register("abc123", "ssh-secret", "Test App", "abc123@example.com", "Abc 123", "bob");
