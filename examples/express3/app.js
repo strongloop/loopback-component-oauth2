@@ -61,4 +61,6 @@ app.get('/callback', site.callbackPage);
 
 // app.listen(3000);
 http.createServer(app).listen(9080);
+console.log("http://localhost:9080");
 https.createServer(options, app).listen(9443);
+console.log("https://localhost:9443");
