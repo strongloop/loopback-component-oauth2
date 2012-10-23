@@ -49,7 +49,7 @@ server.deserializeClient(function(id, done) {
 // values, and will be exchanged for an access token.
 
 server.grant(oauth2orize.grant.code(function(client, redirectURI, user, ares, done) {
-  var code = utils.uid(16)
+  var code = utils.uid(32)
   
   db.authorizationCodes.save(code, client.id, redirectURI, user.id, function(err) {
     if (err) { return done(err); }
@@ -73,6 +73,7 @@ server.exchange(oauth2orize.exchange.code(function(client, code, redirectURI, do
       db.authorizationCodes.delete(code, function(err) {
         if(err) { return done(err); }
     var token = utils.uid(256)
+    
     db.accessTokens.save(token, authCode.clientID, authCode.userID, authCode.scopes, function(err) {
 
       if (err) { return done(err); }
@@ -86,7 +87,7 @@ server.exchange(oauth2orize.exchange.password(function(client, username, passwor
       if (err) { return done(err); }
       if (!user) { return done(null, false); }
       if (user.password != password) { return done(null, false); }
-      var token = utils.uid(256);
+      var token = utils.uid(32);
       db.accessTokens.save(token, client.id, user.id, scope, function(err) {
         if (err) { return done(err); }
         done(null, token);
@@ -96,35 +97,24 @@ server.exchange(oauth2orize.exchange.password(function(client, username, passwor
 
 
 server.exchange(oauth2orize.exchange.clientCredentials(function(client, scope, done) {
-    db.clients.findByClientId(clientID, function(err, client) {
-        if(err) {
-            return done(err);
-        }
-        var token = utils.uid(256);
-        db.accessTokens.save(token, client.clientId, null, scope, function(err) {
-            if (err) { return done(err); }
-            done(null, token);
-        });
+    var token = utils.uid(32);
+    db.accessTokens.save(token, client.clientId, null, scope, function(err) {
+        if (err) { return done(err); }
+        done(null, token);
     });
 }));
 
 server.exchange(oauth2orize.exchange.refreshToken(function(client, refreshToken, scope, done) {
-    db.clients.findByClientId(client.clientID, function(err, client) {
-        if(err) {
-            return done(err);
-        }
-        var token = utils.uid(256);
-        db.accessTokens.save(token, client.clientId, null, scope, function(err) {
-            if (err) { return done(err); }
-            done(null, token);
-        });
+    var token = utils.uid(32);
+    db.accessTokens.save(token, client.clientId, null, scope, function(err) {
+        if (err) { return done(err); }
+        done(null, token);
     });
 }));
 
 
-
 server.grant(oauth2orize.grant.token(function(client, user, ares, done) {
-  var token = utils.uid(16);
+  var token = utils.uid(32);
   db.accessTokens.save(token, client.id, user.id, ares.scope, function(err) {
     if (err) { return done(err); }
     done(null, token);
@@ -186,7 +176,7 @@ exports.decision = [
 // authenticate when making requests to this endpoint.
 
 exports.token = [
-  passport.authenticate(['basic', 'oauth2-client-password'], { session: false }),
+  passport.authenticate(['oauth2-client-password', 'basic'], { session: false }),
   server.token(),
   server.errorHandler()
 ]
