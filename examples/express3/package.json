@@ -1,5 +1,5 @@
 {
-  "name": "oauth2orize-example",
+  "name": "api-freelunch",
   "version": "0.0.0",
   "dependencies": {
     "express": "3.x.x",
@@ -13,6 +13,7 @@
     "connect-ensure-login": "0.1.x",
     "restify": "1.4.x",
     "mongoose": "3.3.x",
-    "node-static": "0.6.x"
+    "node-static": "0.6.x",
+    "http-proxy": "0.8.4"
   }
 }

@@ -3,12 +3,13 @@
  */
 var express = require('express')
   , passport = require('passport')
-  , site = require('./site')
-  , oauth2 = require('./oauth2')
-  , user = require('./user')
   , util = require('util')
   , http = require('http')
   , https = require('https') 
+  , site = require('./site')
+  , oauth2 = require('./oauth2')
+  , user = require('./user')
+  , proxy = require('./proxy')
   , sslCert = require('./private/ssl_cert')
 
 
@@ -23,9 +24,15 @@ var app = express();
 
 app.set('view engine', 'ejs');
 app.use(express.logger());
+
+// Configure the proxy before the bodyParser
+// See https://github.com/nodejitsu/node-http-proxy/issues/180
+app.use('/proxy', proxy.route);
+
 app.use(express.cookieParser());
 app.use(express.bodyParser());
 app.use(express.session({ secret: 'keyboard cat' }));
+
 /*
 app.use(function(req, res, next) {
   console.log('-- session --');
@@ -35,6 +42,7 @@ app.use(function(req, res, next) {
   next()
 });
 */
+
 app.use(passport.initialize());
 app.use(passport.session());
 app.use(app.router);
