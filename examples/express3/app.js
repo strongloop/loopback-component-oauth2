@@ -41,9 +41,11 @@ app.use(app.router);
 app.use(express.errorHandler({ dumpExceptions: true, showStack: true }));
 
 // Passport configuration
-
 require('./auth');
 
+app.use('/protected', function(req, res, next) {
+  passport.authenticate('bearer', 
+                        {session: false, scope: 's1'})(req, res, next); }); 
 
 app.get('/', site.index);
 app.get('/login', site.loginForm);
