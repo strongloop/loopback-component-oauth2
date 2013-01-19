@@ -20,10 +20,10 @@
   },
   "repository": {
     "type": "git",
-    "url": "git://github.com/jaredhanson/oauth2orize.git"
+    "url": "git://github.com/strongloop/oauth2orize.git"
   },
   "bugs": {
-    "url": "http://github.com/jaredhanson/oauth2orize/issues"
+    "url": "http://github.com/strongloop/oauth2orize/issues"
   },
   "licenses": [
     {
