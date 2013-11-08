@@ -1,29 +1,14 @@
 {
-  "name": "oauth2orize",
-  "version": "1.0.1",
+  "name": "loopback-oauth2",
+  "version": "1.0.0",
   "description": "OAuth 2.0 authorization server toolkit for Node.js.",
-  "keywords": [
-    "oauth",
-    "oauth2",
-    "auth",
-    "authz",
-    "authorization",
-    "connect",
-    "express",
-    "passport",
-    "middleware"
-  ],
-  "author": {
-    "name": "Jared Hanson",
-    "email": "jaredhanson@gmail.com",
-    "url": "http://www.jaredhanson.net/"
-  },
+  "keywords": ["StrongLoop", "LoopBack", "oauth", "oauth2", "connect", "express", "middleware", "http", "api"],
   "repository": {
     "type": "git",
-    "url": "git://github.com/strongloop/oauth2orize.git"
+    "url": "git://github.com/strongloop/loopback-oauth2.git"
   },
   "bugs": {
-    "url": "http://github.com/strongloop/oauth2orize/issues"
+    "url": "http://github.com/strongloop/loopback-oauth2/issues"
   },
   "licenses": [
     {
@@ -36,14 +21,23 @@
     "uid2": "0.0.x",
     "utils-merge": "1.x.x",
     "debug": "0.7.x",
-    "pkginfo": "0.2.x",
-    "passport": "~0.1.3"
+    "pkginfo": "0.3.x",
+    "passport": "~0.1.17"
   },
   "devDependencies": {
+<<<<<<< HEAD
     "mocha": "1.x.x",
     "chai": "1.x.x",
+<<<<<<< HEAD
     "chai-connect-middleware": "0.3.x",
     "chai-oauth2orize-grant": "0.2.x"
+=======
+    "chai-connect-middleware": "0.1.x",
+    "chai-oauth2orize-grant": "0.1.x"
+=======
+    "vows": "0.7.x"
+>>>>>>> Update package.json
+>>>>>>> Update package.json
   },
   "engines": {
     "node": ">= 0.4.0"
