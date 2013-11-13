@@ -262,7 +262,7 @@ describe('grant.code', function() {
   });
   
   describe('decision handling', function() {
-    function issue(client, redirectURI, user, done) {
+    function issue(client, redirectURI, user, scope, done) {
       if (client.id == 'c123' && redirectURI == 'http://example.com/auth/callback' && user.id == 'u123') {
         return done(null, 'xyz');
       } else if (client.id == 'cUNAUTHZ') {
@@ -495,7 +495,7 @@ describe('grant.code', function() {
   });
   
   describe('decision handling with user response', function() {
-    function issue(client, redirectURI, user, ares, done) {
+    function issue(client, redirectURI, user, scope, ares, done) {
       if (client.id == 'c123' && redirectURI == 'http://example.com/auth/callback' && user.id == 'u123' && ares.scope == 'foo') {
         return done(null, 'xyz');
       }

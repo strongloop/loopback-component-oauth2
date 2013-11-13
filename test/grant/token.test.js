@@ -262,7 +262,7 @@ describe('grant.token', function() {
   });
   
   describe('decision handling', function() {
-    function issue(client, user, done) {
+    function issue(client, user, scope, done) {
       if (client.id == 'c123' && user.id == 'u123') {
         return done(null, 'xyz');
       } else if (client.id == 'c223' && user.id == 'u123') {
@@ -553,7 +553,7 @@ describe('grant.token', function() {
   });
   
   describe('decision handling with user response', function() {
-    function issue(client, user, ares, done) {
+    function issue(client, user, scope, ares, done) {
       if (client.id == 'c123' && user.id == 'u123' && ares.scope == 'foo') {
         return done(null, 'xyz');
       }
