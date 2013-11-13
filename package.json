@@ -25,19 +25,11 @@
     "passport": "~0.1.17"
   },
   "devDependencies": {
-<<<<<<< HEAD
     "mocha": "1.x.x",
     "chai": "1.x.x",
-<<<<<<< HEAD
     "chai-connect-middleware": "0.3.x",
     "chai-oauth2orize-grant": "0.2.x"
-=======
-    "chai-connect-middleware": "0.1.x",
-    "chai-oauth2orize-grant": "0.1.x"
-=======
     "vows": "0.7.x"
->>>>>>> Update package.json
->>>>>>> Update package.json
   },
   "engines": {
     "node": ">= 0.4.0"
