@@ -1,7 +1,7 @@
 var express = require('express')
   , passport = require('passport')
   , util = require('util')
-  , BearerStrategy = require('passport-http-bearer').Strategy;
+  , BearerStrategy = require('../../lib/passport-http-bearer').Strategy;
 
 
 var users = [
@@ -26,7 +26,7 @@ function findByToken(token, fn) {
 //   object.
 passport.use(new BearerStrategy({
   },
-  function(token, done) {
+  function(token, scope, done) {
     // asynchronous validation, for effect...
     process.nextTick(function () {
       
@@ -38,15 +38,12 @@ passport.use(new BearerStrategy({
         if (err) { return done(err); }
         if (!user) { return done(null, false); }
         return done(null, user);
-      })
+      });
     });
   }
 ));
 
-
-
-
-var app = express.createServer();
+var app = express();
 
 // configure Express
 app.configure(function() {

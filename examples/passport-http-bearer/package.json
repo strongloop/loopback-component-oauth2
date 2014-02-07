@@ -1,9 +1,8 @@
 {
-  "name": "passport-http-bearer-examples-bearer",
+  "name": "passport-http-bearer-example",
   "version": "0.0.0",
   "dependencies": {
-    "express": ">= 0.0.0",
-    "passport": ">= 0.0.0",
-    "passport-http-bearer": ">= 0.0.0"
+    "express": "~3.4.0",
+    "passport": "~0.2.0"
   }
 }
