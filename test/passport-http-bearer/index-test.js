@@ -1,7 +1,7 @@
 var vows = require('vows');
 var assert = require('assert');
 var util = require('util');
-var bearer = require('passport-http-bearer/index');
+var bearer = require('../../lib/passport-http-bearer/index');
 
 
 vows.describe('passport-http-bearer').addBatch({
