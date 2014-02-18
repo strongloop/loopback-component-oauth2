@@ -10,12 +10,6 @@
   "bugs": {
     "url": "http://github.com/strongloop/loopback-oauth2/issues"
   },
-  "licenses": [
-    {
-      "type": "MIT",
-      "url": "http://www.opensource.org/licenses/MIT"
-    }
-  ],
   "main": "./lib",
   "dependencies": {
     "uid2": "0.0.x",
@@ -36,5 +30,9 @@
   },
   "scripts": {
     "test": "node_modules/.bin/mocha --reporter spec --require test/bootstrap/node test/*.test.js test/**/*.test.js"
+  },
+  "license": {
+    "name": "Dual Artistic-2.0/StrongLoop",
+    "url": "https://github.com/strongloop/loopback-oauth2/blob/master/LICENSE"
   }
 }
