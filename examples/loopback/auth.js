@@ -5,7 +5,7 @@ var passport = require('passport')
   , LocalStrategy = require('passport-local').Strategy
   , BasicStrategy = require('passport-http').BasicStrategy
   , ClientPasswordStrategy = require('passport-oauth2-client-password').Strategy
-  , BearerStrategy = require('../../lib/passport-http-bearer').Strategy
+  , BearerStrategy = require('passport-http-bearer').Strategy
   , db = require('../../lib/models');
 
 
