@@ -39,23 +39,10 @@ app.use(loopback.cookieParser());
 app.use(loopback.bodyParser());
 app.use(loopback.session({ secret: 'keyboard cat' }));
 
-/*
-app.use(function(req, res, next) {
-  console.log('-- session --');
-  console.dir(req.session);
-  //console.log(util.inspect(req.session, true, 3));
-  console.log('-------------');
-  next()
-});
-*/
-
 app.use(passport.initialize());
 app.use(passport.session());
 app.use(app.router);
 app.use(loopback.errorHandler({ dumpExceptions: true, showStack: true }));
-
-// Passport configuration
-require('./auth');
 
 app.use('/protected', function(req, res, next) {
   passport.authenticate('bearer', 
@@ -68,6 +55,7 @@ app.get('/logout', site.logout);
 app.get('/account', site.account);
 
 app.get('/dialog/authorize', oauth2.authorization);
+app.get('/oauth/authorize', oauth2.authorization);
 app.post('/dialog/authorize/decision', oauth2.decision);
 app.post('/oauth/token', oauth2.token);
 
@@ -76,6 +64,7 @@ app.get('/api/userinfo', user.info);
 app.get('/callback', site.callbackPage);
 
 app.set('views', __dirname + '/views');
+app.use(loopback.static(path.join(__dirname, 'public')));
 
 app.models.user.create({username: 'bob',
   password: 'secret',
@@ -84,7 +73,8 @@ app.models.user.create({username: 'bob',
     // Hack to set the app id to a fixed value so that we don't have to change
     // the client settings
     app.models.application.beforeSave = function (next) {
-      this.id = 'demo';
+      this.id = 123;
+      this.restApiKey = 'secret';
       next();
     };
   app.models.application.register(
