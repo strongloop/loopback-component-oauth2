@@ -30,6 +30,8 @@ app.boot(__dirname);
 
 var oauth2 = require('../../lib/oauth2-provider');
 
+loopback.autoAttach();
+
 app.set('view engine', 'ejs');
 app.use(loopback.logger());
 
