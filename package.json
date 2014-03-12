@@ -2,7 +2,17 @@
   "name": "loopback-oauth2",
   "version": "1.0.0",
   "description": "OAuth 2.0 authorization server toolkit for Node.js.",
-  "keywords": ["StrongLoop", "LoopBack", "oauth", "oauth2", "connect", "express", "middleware", "http", "api"],
+  "keywords": [
+    "StrongLoop",
+    "LoopBack",
+    "oauth",
+    "oauth2",
+    "connect",
+    "express",
+    "middleware",
+    "http",
+    "api"
+  ],
   "repository": {
     "type": "git",
     "url": "git://github.com/strongloop/loopback-oauth2.git"
@@ -12,18 +22,20 @@
   },
   "main": "./lib",
   "dependencies": {
-    "uid2": "0.0.x",
-    "utils-merge": "1.x.x",
-    "debug": "0.7.x",
-    "pkginfo": "0.3.x",
-    "passport": "~0.1.17"
+    "loopback": "~1.7.0",
+    "uid2": "~0.0.3",
+    "utils-merge": "~1.0.0",
+    "debug": "~0.7.4",
+    "pkginfo": "~0.3.0",
+    "passport": "~0.2.0",
+    "connect-ensure-login": "~0.1.1"
   },
   "devDependencies": {
-    "mocha": "1.x.x",
-    "chai": "1.x.x",
-    "chai-connect-middleware": "0.3.x",
-    "chai-oauth2orize-grant": "0.2.x",
-    "vows": "0.7.x"
+    "mocha": "~1.17.1",
+    "chai": "~1.9.0",
+    "chai-connect-middleware": "~0.3.1",
+    "chai-oauth2orize-grant": "~0.2.0",
+    "vows": "~0.7.0"
   },
   "engines": {
     "node": ">= 0.4.0"

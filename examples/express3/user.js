@@ -1,7 +1,7 @@
 /**
  * Module dependencies.
  */
-var passport = require('passport')
+var passport = require('passport');
 
 exports.info = [
   passport.authenticate('bearer', { session: false }),

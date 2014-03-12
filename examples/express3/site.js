@@ -2,7 +2,7 @@
  * Module dependencies.
  */
 var passport = require('passport')
-  , login = require('connect-ensure-login')
+  , login = require('connect-ensure-login');
 
 
 exports.index = function(req, res) {

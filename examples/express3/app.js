@@ -1,16 +1,14 @@
 /**
  * Module dependencies.
  */
-var express = require('express')
+var loopback = require('loopback')
   , passport = require('passport')
-  , util = require('util')
   , http = require('http')
-  , https = require('https') 
+  , https = require('https')
+  , path = require('path')
   , site = require('./site')
-  , oauth2 = require('./oauth2')
   , user = require('./user')
-  , proxy = require('./proxy')
-  , sslCert = require('./private/ssl_cert')
+  , sslCert = require('./private/ssl_cert');
 
 
 var options = {
@@ -20,18 +18,24 @@ var options = {
 
 // Express configuration
   
-var app = express();
+var app = loopback();
+
+/*
+ * 1. Configure LoopBack models and datasources
+ *
+ * Read more at http://apidocs.strongloop.com/loopback#appbootoptions
+ */
+
+app.boot(__dirname);
+
+var oauth2 = require('../../lib/oauth2-provider');
 
 app.set('view engine', 'ejs');
-app.use(express.logger());
+app.use(loopback.logger());
 
-// Configure the proxy before the bodyParser
-// See https://github.com/nodejitsu/node-http-proxy/issues/180
-app.use('/proxy', proxy.route);
-
-app.use(express.cookieParser());
-app.use(express.bodyParser());
-app.use(express.session({ secret: 'keyboard cat' }));
+app.use(loopback.cookieParser());
+app.use(loopback.bodyParser());
+app.use(loopback.session({ secret: 'keyboard cat' }));
 
 /*
 app.use(function(req, res, next) {
@@ -46,7 +50,7 @@ app.use(function(req, res, next) {
 app.use(passport.initialize());
 app.use(passport.session());
 app.use(app.router);
-app.use(express.errorHandler({ dumpExceptions: true, showStack: true }));
+app.use(loopback.errorHandler({ dumpExceptions: true, showStack: true }));
 
 // Passport configuration
 require('./auth');
@@ -68,6 +72,34 @@ app.post('/oauth/token', oauth2.token);
 app.get('/api/userinfo', user.info);
 
 app.get('/callback', site.callbackPage);
+
+app.set('views', __dirname + '/views');
+
+app.models.user.create({username: 'bob',
+  password: 'secret',
+  email: 'foo@bar.com'}, function(err, user) {
+
+    // Hack to set the app id to a fixed value so that we don't have to change
+    // the client settings
+    app.models.application.beforeSave = function (next) {
+      this.id = 'demo';
+      next();
+    };
+  app.models.application.register(
+      user.id,
+      'demo-app',
+      {
+      },
+      function (err, demo) {
+        if (err) {
+          console.error(err);
+        } else {
+          console.log(demo.id, demo.restApiKey);
+        }
+      }
+    );
+
+  });
 
 // app.listen(3000);
 http.createServer(app).listen(9080);

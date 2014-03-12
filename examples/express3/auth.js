@@ -5,8 +5,8 @@ var passport = require('passport')
   , LocalStrategy = require('passport-local').Strategy
   , BasicStrategy = require('passport-http').BasicStrategy
   , ClientPasswordStrategy = require('passport-oauth2-client-password').Strategy
-  , BearerStrategy = require('passport-http-bearer').Strategy
-  , db = require('./db')
+  , BearerStrategy = require('../../lib/passport-http-bearer').Strategy
+  , db = require('../../lib/models');
 
 
 /**
@@ -21,8 +21,9 @@ passport.use(new LocalStrategy(
     db.users.findByUsername(username, function(err, user) {
       if (err) { return done(err); }
       if (!user) { return done(null, false); }
-      if (user.password != password) { return done(null, false); }
-      return done(null, user);
+      user.hasPassword(password, function(err, matched) {
+        done(err, matched? user: null);
+      });
     });
   }
 ));
@@ -54,7 +55,7 @@ passport.use(new BasicStrategy(
     db.clients.findByClientId(username, function(err, client) {
       if (err) { return done(err); }
       if (!client) { return done(null, false); }
-      if (client.clientSecret != password) { return done(null, false); }
+      if (client.clientSecret !== password) { return done(null, false); }
       return done(null, client);
     });
   }
@@ -65,7 +66,7 @@ passport.use(new ClientPasswordStrategy(
     db.clients.findByClientId(clientId, function(err, client) {
       if (err) { return done(err); }
       if (!client) { return done(null, false); }
-      if (client.clientSecret != clientSecret) { return done(null, false); }
+      if (client.clientSecret !== clientSecret) { return done(null, false); }
       return done(null, client);
     });
   }
@@ -90,7 +91,7 @@ passport.use(new BearerStrategy(
         if (!user) { return done(null, false); }
         // to keep this example simple, restricted scopes are not implemented,
         // and this is just for illustrative purposes
-        var info = { scope: token.scopes }
+        var info = { scope: token.scopes };
         done(null, user, info);
       });
     });
