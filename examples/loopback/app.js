@@ -35,9 +35,39 @@ loopback.autoAttach();
 app.set('view engine', 'ejs');
 app.use(loopback.logger());
 
-app.use(loopback.cookieParser());
+app.use(loopback.favicon());
+app.use(loopback.cookieParser(app.get('cookieSecret')));
 app.use(loopback.bodyParser());
+app.use(loopback.methodOverride());
+
 app.use(loopback.session({ secret: 'keyboard cat' }));
+
+/*
+ * EXTENSION POINT
+ * Add your custom request-preprocessing middleware here.
+ * Example:
+ *   app.use(loopback.limit('5.5mb'))
+ */
+
+/*
+ * 3. Setup request handlers.
+ */
+
+// LoopBack REST interface
+app.use(app.get('restApiRoot'), loopback.rest());
+
+// API explorer (if present)
+try {
+  var explorer = require('loopback-explorer')(app);
+  app.use('/explorer', explorer);
+  app.once('started', function (baseUrl) {
+    console.log('Browse your REST API at %s%s', baseUrl, explorer.route);
+  });
+} catch (e) {
+  console.log(
+    'Run `npm install loopback-explorer` to enable the LoopBack explorer'
+  );
+}
 
 app.use(passport.initialize());
 app.use(passport.session());
@@ -48,7 +78,7 @@ app.use('/protected', function(req, res, next) {
   passport.authenticate('bearer', 
                         {session: false, scope: 's1'})(req, res, next); }); 
 
-app.get('/', site.index);
+// app.get('/', site.index);
 app.get('/login', site.loginForm);
 app.post('/login', site.login);
 app.get('/logout', site.logout);
@@ -59,12 +89,14 @@ app.get('/oauth/authorize', oauth2.authorization);
 app.post('/dialog/authorize/decision', oauth2.decision);
 app.post('/oauth/token', oauth2.token);
 
-app.get('/api/userinfo', user.info);
+app.get('/userinfo', user.info);
 
 app.get('/callback', site.callbackPage);
 
 app.set('views', __dirname + '/views');
 app.use(loopback.static(path.join(__dirname, 'public')));
+
+app.use('/admin', loopback.static(path.join(__dirname, 'admin')));
 
 app.models.user.create({username: 'bob',
   password: 'secret',
@@ -94,7 +126,7 @@ app.models.user.create({username: 'bob',
   });
 
 // app.listen(3000);
-http.createServer(app).listen(9080);
-console.log("http://localhost:9080");
-https.createServer(options, app).listen(9443);
-console.log("https://localhost:9443");
+http.createServer(app).listen(3000);
+console.log("http://localhost:3000");
+https.createServer(options, app).listen(3001);
+console.log("https://localhost:3001");
