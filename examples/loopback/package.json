@@ -2,9 +2,10 @@
   "name": "loopback-example-oauth2",
   "version": "1.0.0",
   "dependencies": {
-    "ejs": "~0.8.5",
     "connect-ensure-login": "~0.1.1",
-    "node-static": "~0.7.3",
-    "http-proxy": "~1.0.2"
+    "ejs": "~1.0.0",
+    "http-proxy": "~1.3.0",
+    "loopback-boot": "~1.1.1",
+    "node-static": "~0.7.4"
   }
 }

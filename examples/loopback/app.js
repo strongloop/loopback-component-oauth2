@@ -2,6 +2,7 @@
  * Module dependencies.
  */
 var loopback = require('loopback')
+  , boot = require('loopback-boot')
   , passport = require('passport')
   , http = require('http')
   , https = require('https')
@@ -26,16 +27,14 @@ var app = loopback();
  * Read more at http://apidocs.strongloop.com/loopback#appbootoptions
  */
 
-app.boot(__dirname);
+boot(app, __dirname);
 
 var oauth2 = require('../../lib/oauth2-provider');
 
 loopback.autoAttach();
 
 app.set('view engine', 'ejs');
-app.use(loopback.logger());
 
-app.use(loopback.favicon());
 app.use(loopback.cookieParser(app.get('cookieSecret')));
 app.use(loopback.bodyParser());
 app.use(loopback.methodOverride());
