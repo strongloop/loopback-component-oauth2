@@ -1,6 +1,0 @@
-{
-    "router": {
-        "localhost/1": "www.google.com",
-        "localhost/2": "nodejs.org"
-    }
-}

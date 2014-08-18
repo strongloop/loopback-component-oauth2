@@ -1,7 +1,7 @@
 var client_id = "123";
 var client_secret = "secret";
 var client_registration_loaded = false;
-var baseURL = "http://" + location.host;
+var baseURL = location.protocol + "//" + location.host;
 var tokenEndpoint = baseURL + "/oauth/token";
 var authEndpoint = baseURL + "/oauth/authorize";
 

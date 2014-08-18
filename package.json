@@ -22,7 +22,6 @@
   },
   "main": "./lib",
   "dependencies": {
-    "loopback": "1.x",
     "uid2": "~0.0.3",
     "utils-merge": "~1.0.0",
     "debug": "~1.0.4",
