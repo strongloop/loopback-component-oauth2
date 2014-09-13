@@ -24,14 +24,13 @@
   "dependencies": {
     "connect-ensure-login": "~0.1.1",
     "debug": "~2.0.0",
-    "jwt-simple": "~0.2.0",
-    "oauth2orize-jwt-bearer": "~0.1.0",
+    "jws": "~0.2.6",
     "passport": "~0.2.1",
     "passport-http": "~0.2.2",
     "passport-http-bearer": "~1.0.1",
     "passport-local": "~1.0.0",
     "passport-oauth2-client-password": "~0.1.2",
-    "passport-oauth2-jwt-bearer": "~0.1.1",
+    "passport-strategy": "~1.0.0",
     "pkginfo": "~0.3.0",
     "uid2": "~0.0.3",
     "utils-merge": "~1.0.0"
