@@ -1,13 +1,6 @@
-# OAuth2orize
+# loopback-oauth2
 
-[![Build](https://travis-ci.org/jaredhanson/oauth2orize.png)](https://travis-ci.org/jaredhanson/oauth2orize)
-[![Coverage](https://coveralls.io/repos/jaredhanson/oauth2orize/badge.png)](https://coveralls.io/r/jaredhanson/oauth2orize)
-[![Quality](https://codeclimate.com/github/jaredhanson/oauth2orize.png)](https://codeclimate.com/github/jaredhanson/oauth2orize)
-[![Dependencies](https://david-dm.org/jaredhanson/oauth2orize.png)](https://david-dm.org/jaredhanson/oauth2orize)
-[![Tips](http://img.shields.io/gittip/jaredhanson.png)](https://www.gittip.com/jaredhanson/)
-
-
-OAuth2orize is an authorization server toolkit for Node.js.  It provides a suite
+loopback-oauth2 is an authorization server toolkit for Node.js.  It provides a suite
 of middleware that, combined with [Passport](http://passportjs.org/)
 authentication strategies and application-specific route handlers, can be used
 to assemble a server that implements the [OAuth 2.0](http://tools.ietf.org/html/rfc6749)
@@ -15,7 +8,7 @@ protocol.
 
 ## Install
 
-    $ npm install oauth2orize
+    $ npm install loopback-oauth2
 
 ## Usage
 
@@ -29,7 +22,7 @@ support common types or plugins to support extension types.
 Call `createServer()` to create a new OAuth 2.0 server.  This instance exposes
 middleware that will be mounted in routes, as well as configuration options.
 
-    var server = oauth2orize.createServer();
+    var server = oauth2Provider.createServer();
 
 #### Register Grants
 
@@ -37,7 +30,7 @@ A client must obtain permission from a user before it is issued an access token.
 This permission is known as a grant, the most common type of which is an
 authorization code.
 
-    server.grant(oauth2orize.grant.code(function(client, redirectURI, user, ares, done) {
+    server.grant(oauth2Provider.grant.code(function(client, redirectURI, user, ares, done) {
       var code = utils.uid(16);
 
       var ac = new AuthorizationCode(code, client.id, redirectURI, user.id, ares.scope);
@@ -47,14 +40,14 @@ authorization code.
       });
     }));
 
-OAuth2orize also bundles support for implicit token grants.
+loopback-oauth2 also bundles support for implicit token grants.
 
 #### Register Exchanges
 
 After a client has obtained an authorization grant from the user, that grant can
 be exchanged for an access token.
 
-    server.exchange(oauth2orize.exchange.code(function(client, code, redirectURI, done) {
+    server.exchange(oauth2Provider.exchange.code(function(client, code, redirectURI, done) {
       AuthorizationCode.findOne(code, function(err, code) {
         if (err) { return done(err); }
         if (client.id !== code.clientId) { return done(null, false); }
@@ -69,7 +62,7 @@ be exchanged for an access token.
       });
     }));
 
-OAuth2orize also bundles support for password and client credential grants.
+loopback-oauth2 also bundles support for password and client credential grants.
 Additionally, bundled refresh token support allows expired access tokens to be
 renewed.
 
@@ -162,26 +155,10 @@ an HTTP Bearer authentication header (as provided by [passport-http-bearer](http
 
 ## Examples
 
-This [example](https://github.com/jaredhanson/oauth2orize/tree/master/examples/express2) demonstrates
+This [example](https://github.com/strongloop/loopback-example/gateway) demonstrates
 how to implement an OAuth service provider, complete with protected API access.
-
-## Related Modules
-
-- [oauth2orize-openid](https://github.com/jaredhanson/oauth2orize-openid) — Extensions to support OpenID Connect
-- [oauth2orize-jwt-bearer](https://github.com/xtuple/oauth2orize-jwt-bearer) — Exchange JWT assertions for access tokens
-- [passport-http-bearer](https://github.com/jaredhanson/passport-http-bearer) — Bearer token authentication strategy for APIs
 
 ## Tests
 
     $ npm install
     $ npm test
-
-## Credits
-
-  - [Jared Hanson](http://github.com/jaredhanson)
-
-## License
-
-[The MIT License](http://opensource.org/licenses/MIT)
-
-Copyright (c) 2012-2013 Jared Hanson <[http://jaredhanson.net/](http://jaredhanson.net/)>
