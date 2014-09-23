@@ -1,7 +1,7 @@
 {
   "name": "loopback-component-oauth2",
   "version": "1.0.0",
-  "description": "OAuth 2.0 authorization server toolkit for Node.js.",
+  "description": "OAuth 2.0 provider for LoopBack",
   "keywords": [
     "StrongLoop",
     "LoopBack",

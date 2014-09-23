@@ -1,14 +1,9 @@
-# loopback-oauth2
+# loopback-component-oauth2
 
-loopback-oauth2 is an authorization server toolkit for Node.js.  It provides a suite
-of middleware that, combined with [Passport](http://passportjs.org/)
-authentication strategies and application-specific route handlers, can be used
-to assemble a server that implements the [OAuth 2.0](http://tools.ietf.org/html/rfc6749)
-protocol.
-
-## Install
-
-    $ npm install loopback-oauth2
+loopback-component-oauth2 provides full integration between [OAuth 2.0](http://tools.ietf.org/html/rfc6749)
+and [LoopBack](http://loopback.io). It enables LoopBack applications to function
+as an oAuth 2.0 provider to authenticate and authorize client applications and/or
+resource owners to access protected API endpoints.
 
 ## Usage
 
@@ -40,7 +35,7 @@ authorization code.
       });
     }));
 
-loopback-oauth2 also bundles support for implicit token grants.
+loopback-component-oauth2 also bundles support for implicit token grants.
 
 #### Register Exchanges
 
@@ -62,7 +57,7 @@ be exchanged for an access token.
       });
     }));
 
-loopback-oauth2 also bundles support for password and client credential grants.
+loopback-component-oauth2 also bundles support for password and client credential grants.
 Additionally, bundled refresh token support allows expired access tokens to be
 renewed.
 
@@ -155,7 +150,7 @@ an HTTP Bearer authentication header (as provided by [passport-http-bearer](http
 
 ## Examples
 
-This [example](https://github.com/strongloop/loopback-example/gateway) demonstrates
+This [example](https://github.com/strongloop/loopback-example-gateway) demonstrates
 how to implement an OAuth service provider, complete with protected API access.
 
 ## Tests
