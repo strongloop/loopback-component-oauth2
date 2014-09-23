@@ -1,5 +1,5 @@
 {
-  "name": "loopback-oauth2",
+  "name": "loopback-component-oauth2",
   "version": "1.0.0",
   "description": "OAuth 2.0 authorization server toolkit for Node.js.",
   "keywords": [
@@ -7,18 +7,18 @@
     "LoopBack",
     "oauth",
     "oauth2",
-    "connect",
-    "express",
-    "middleware",
-    "http",
+    "passport",
+    "authentication",
+    "authorization",
+    "gateway",
     "api"
   ],
   "repository": {
     "type": "git",
-    "url": "git://github.com/strongloop/loopback-oauth2.git"
+    "url": "git://github.com/strongloop/loopback-component-oauth2.git"
   },
   "bugs": {
-    "url": "http://github.com/strongloop/loopback-oauth2/issues"
+    "url": "http://github.com/strongloop/loopback-component-oauth2/issues"
   },
   "main": "./lib",
   "dependencies": {
@@ -50,6 +50,6 @@
   },
   "license": {
     "name": "Dual Artistic-2.0/StrongLoop",
-    "url": "https://github.com/strongloop/loopback-oauth2/blob/master/LICENSE"
+    "url": "https://github.com/strongloop/loopback-component-oauth2/blob/master/LICENSE"
   }
 }
