@@ -49,19 +49,18 @@ It also uses the user and application model from the loopback module:
 ## Usage
 
 ```js
+var oauth2 = require('loopback-component-oauth2');
 
-    var oauth2 = require('loopback-component-oauth2');
+var options = { 
+  dataSource: app.dataSources.db, // Data source for oAuth2 metadata persistence
+  loginPage: '/login', // The login page url
+  loginPath: '/login' // The login form processing url
+};
 
-    var options = { 
-        dataSource: app.dataSources.db, // Data source for oAuth2 metadata persistence
-        loginPage: '/login', // The login page url
-        loginPath: '/login' // The login form processing url
-    };
-
-    oauth2.oAuth2Provider(
-        app, // The app instance
-        options // The options
-    );
+oauth2.oAuth2Provider(
+  app, // The app instance
+  options // The options
+);
 ```
 
 The app instance will be used to set up middleware and routes. The data source
@@ -139,10 +138,8 @@ number in seconds
 ## Protect endpoints with oAuth 2.0
 
 ```js
-
-    oauth2.authenticate(['/protected', '/api', '/me'], 
-    {session: false, scope: 'email'});
-    
+oauth2.authenticate(['/protected', '/api', '/me'], 
+  {session: false, scope: 'email'});
 ```    
 
 ## Examples
