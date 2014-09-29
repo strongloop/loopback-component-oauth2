@@ -97,10 +97,22 @@ The following options are available for an authorization server:
   - false: Do not set up the decision endpoint
 
 - decisionView (string)
-  - a server-side view name to render the decision dialog
+  - a server-side view name to render the decision dialog. The input for the 
+  view is:
+    - transactionId: An internal token to prevent forging
+    - user: user/resource owner object
+    - client: client application object
+    - scope: oAuth 2.0 scope(s)
+    - redirectURI: redirect uri after the decision is made
   
 - decisionPage (string)
-  - a url to the decision dialog page. It will override decisionView
+  - a url to the decision dialog page. It will override decisionView. The query
+  parameters are:
+    - transactionId: An internal token to prevent forging
+    - userId: user/resource owner id
+    - clientId: client application id
+    - scope: oAuth 2.0 scope(s)
+    - redirectURI: redirect uri after the decision is made
   
 - loginPath (string or false)
   - a path to mount the user login endpoint, default to POST '/login'
