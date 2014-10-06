@@ -144,5 +144,5 @@ oauth2.authenticate(['/protected', '/api', '/me'],
 
 ## Examples
 
-This [example](https://github.com/strongloop/loopback-example-gateway) demonstrates
+This [example](https://github.com/strongloop/loopback-gateway) demonstrates
 how to implement an OAuth service provider, complete with protected API access.
