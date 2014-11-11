@@ -1,0 +1,15 @@
+{
+  "name": "OAuthScope",
+  "properties": {
+    "scope": {
+      "type": "string",
+      "index": {
+        "unique": true
+      }
+    },
+    "description": "string",
+    "iconURL": "string",
+    "ttl": "number",
+    "requiredAccessLevel": "number"
+  }
+}

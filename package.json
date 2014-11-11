@@ -11,8 +11,11 @@
     "authentication",
     "authorization",
     "gateway",
-    "api"
+    "api",
+    "loopback-component"
   ],
+  "loopback-component": {
+  },
   "repository": {
     "type": "git",
     "url": "git://github.com/strongloop/loopback-component-oauth2.git"
