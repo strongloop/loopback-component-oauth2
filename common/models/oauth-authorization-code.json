@@ -37,6 +37,18 @@
     "used": "boolean",
     "redirectURI": "string",
     "hash": "string"
+  },
+  "relations": {
+    "application": {
+      "type": "belongsTo",
+      "model": "Application",
+      "foreignKey": "appId"
+    },
+    "user": {
+      "type": "belongsTo",
+      "model": "User",
+      "foreignKey": "userId"
+    }
   }
 }
 
