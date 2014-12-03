@@ -1,4 +1,4 @@
-var oauth2orize = require('..')
+var oauth2orize = require('..').oauth2orize
   , Server = require('../lib/server');
   
 

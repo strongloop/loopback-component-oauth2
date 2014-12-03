@@ -1,0 +1,37 @@
+{
+  "name": "OAuthPermission",
+  "base": "PersistedModel",
+  "properties": {
+    "appId": {
+      "type": "string",
+      "index": true
+    },
+    "userId": {
+      "type": "string",
+      "index": true
+    },
+    "issuedAt": {
+      "type": "date",
+      "index": true
+    },
+    "expiresIn": "number",
+    "expiredAt": {
+      "type": "date",
+      "index": true
+    },
+    "scopes": [ "string" ]
+  },
+  "relations": {
+    "application": {
+      "type": "belongsTo",
+      "model": "Application",
+      "foreignKey": "appId"
+    },
+    "user": {
+      "type": "belongsTo",
+      "model": "User",
+      "foreignKey": "userId"
+    }
+  }
+}
+

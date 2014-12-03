@@ -1,0 +1,66 @@
+{
+  "name": "OAuthAccessToken",
+  "base": "PersistedModel",
+  "properties": {
+    "id": {
+      "type": "string",
+      "index": {
+        "unique": true
+      },
+      "id": true,
+      "generated": false
+    },
+    "appId": {
+      "type": "string",
+      "index": true
+    },
+    "userId": {
+      "type": "string",
+      "index": true
+    },
+    "issuedAt": {
+      "type": "date",
+      "index": true
+    },
+    "expiresIn": "number",
+    "expiredAt": {
+      "type": "date",
+      "index": true
+    },
+    "scopes": [ "string" ],
+    "parameters": [
+      {
+        "name": "string",
+        "value": "string"
+      }
+    ],
+    "authorizationCode": {
+      "type": "string",
+      "index": true
+    },
+    "refreshToken": {
+      "type": "string",
+      "index": true
+    },
+
+    "tokenType": {
+      "type": "string",
+      "enum": [ "Bearer", "MAC" ]
+    },
+    "authenticationScheme": "string",
+    "hash": "string"
+  },
+  "relations": {
+    "application": {
+      "type": "belongsTo",
+      "model": "Application",
+      "foreignKey": "appId"
+    },
+    "user": {
+      "type": "belongsTo",
+      "model": "User",
+      "foreignKey": "userId"
+    }
+  }
+}
+
