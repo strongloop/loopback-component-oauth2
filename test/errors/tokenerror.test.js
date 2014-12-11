@@ -85,7 +85,7 @@ describe('TokenError', function() {
       expect(err.message).to.equal('Unsupported grant type');
       expect(err.code).to.equal('unsupported_grant_type');
       expect(err.uri).to.be.undefined;
-      expect(err.status).to.equal(501);
+      expect(err.status).to.equal(400);
     });
   });
   

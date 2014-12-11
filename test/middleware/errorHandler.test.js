@@ -332,7 +332,8 @@ describe('errorHandler', function() {
         expect(res.body).to.be.undefined;
       });
     });
-    
+
+    /*
     describe('handling a request error without an OAuth 2.0 transaction', function() {
       var err;
   
@@ -371,6 +372,8 @@ describe('errorHandler', function() {
         expect(err.message).to.equal('something went wrong');
       });
     });
+    */
+
   });
   
   describe('unknown mode', function() {
