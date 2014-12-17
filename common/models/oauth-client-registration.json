@@ -1,0 +1,36 @@
+{
+  "name": "OAuthClientRegistration",
+  "base": "PersistedModel",
+  "properties": {
+    "clientId": {
+      "type": "string",
+      "id": true,
+      "generated": false,
+      "index": {
+        "unique": true
+      }
+    },
+    "clientSecret": "string",
+    "accessLevel": "number",
+    "name": {
+      "type": "string",
+      "index": true
+    },
+    "email": "string",
+    "description": "string",
+    "url": "string",
+    "iconURL": "string",
+    "redirectURIs": [ "string" ],
+    "type": {
+      "type": "string",
+      "enum": [ "CONFIDENTIAL", "PUBLIC" ]
+    },
+    "userId": {
+      "type": "string",
+      "index": true
+    },
+    "status": "string",
+    "created": "date",
+    "modified": "date"
+  }
+}
