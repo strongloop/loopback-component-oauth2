@@ -74,7 +74,7 @@ describe('AuthorizationError', function() {
       expect(err.message).to.equal('Unsupported response type');
       expect(err.code).to.equal('unsupported_response_type');
       expect(err.uri).to.be.undefined;
-      expect(err.status).to.equal(501);
+      expect(err.status).to.equal(400);
     });
   });
   
