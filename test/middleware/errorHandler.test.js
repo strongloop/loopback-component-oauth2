@@ -332,48 +332,6 @@ describe('errorHandler', function() {
         expect(res.body).to.be.undefined;
       });
     });
-
-    /*
-    describe('handling a request error without an OAuth 2.0 transaction', function() {
-      var err;
-  
-      before(function(done) {
-        chai.connect.use(errorHandler({ mode: 'indirect' }))
-          .next(function(e) {
-            err = e;
-            done();
-          })
-          .dispatch(new Error('something went wrong'));
-      });
-  
-      it('should next with error', function() {
-        expect(err).to.be.an.instanceOf(Error);
-        expect(err.message).to.equal('something went wrong');
-      });
-    });
-    
-    describe('handling a request error without a redirect URI', function() {
-      var err;
-  
-      before(function(done) {
-        chai.connect.use(errorHandler({ mode: 'indirect' }))
-          .req(function(req) {
-            req.oauth2 = {};
-          })
-          .next(function(e) {
-            err = e;
-            done();
-          })
-          .dispatch(new Error('something went wrong'));
-      });
-  
-      it('should next with error', function() {
-        expect(err).to.be.an.instanceOf(Error);
-        expect(err.message).to.equal('something went wrong');
-      });
-    });
-    */
-
   });
   
   describe('unknown mode', function() {
