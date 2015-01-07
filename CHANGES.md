@@ -1,5 +1,15 @@
+2015-01-07, Version 2.0.0-beta2
+===============================
+
+ * Allow declarative config of OAuth2 component (Miroslav Bajtoš)
+
+ * Fix bad CLA URL in CONTRIBUTING.md (Ryan Graham)
+
+
 2014-12-17, Version 2.0.0-beta1
 ===============================
+
+ * v2.0.0-beta1 (Raymond Feng)
 
  * Update deps (Raymond Feng)
 
@@ -155,10 +165,6 @@
 
  * Update support files. (Jared Hanson)
 
-
-2014-01-05, Version 1.0.1
-=========================
-
  * Bump version to 1.0.1. (Jared Hanson)
 
  * Update chai plugins and test cases. (Jared Hanson)
@@ -170,10 +176,6 @@
  * Update server.test.js (noamcb)
 
  * Update server.js (noamcb)
-
-
-2013-09-24, Version 1.0.0
-=========================
 
  * Bump version to 1.0.0. (Jared Hanson)
 
@@ -340,8 +342,6 @@
  * Port password exchange test cases to Mocha. (Jared Hanson)
 
  * Port clientCredentials exchange test cases to Mocha. (Jared Hanson)
-
- * Update support files. (Jared Hanson)
 
  * Port authorizationCode exchange test cases to Mocha. (Jared Hanson)
 
