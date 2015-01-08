@@ -1,5 +1,13 @@
+2015-01-08, Version 2.0.0-beta3
+===============================
+
+ * Fix the oAuth2 auth middleware for an array of handlers (Raymond Feng)
+
+
 2015-01-07, Version 2.0.0-beta2
 ===============================
+
+ * v2.0.0-beta2 (Miroslav Bajtoš)
 
  * Allow declarative config of OAuth2 component (Miroslav Bajtoš)
 
@@ -165,6 +173,10 @@
 
  * Update support files. (Jared Hanson)
 
+
+2014-01-05, Version 1.0.1
+=========================
+
  * Bump version to 1.0.1. (Jared Hanson)
 
  * Update chai plugins and test cases. (Jared Hanson)
@@ -176,6 +188,10 @@
  * Update server.test.js (noamcb)
 
  * Update server.js (noamcb)
+
+
+2013-09-24, Version 1.0.0
+=========================
 
  * Bump version to 1.0.0. (Jared Hanson)
 
@@ -342,6 +358,8 @@
  * Port password exchange test cases to Mocha. (Jared Hanson)
 
  * Port clientCredentials exchange test cases to Mocha. (Jared Hanson)
+
+ * Update support files. (Jared Hanson)
 
  * Port authorizationCode exchange test cases to Mocha. (Jared Hanson)
 
