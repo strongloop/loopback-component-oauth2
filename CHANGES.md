@@ -1,5 +1,23 @@
+2015-01-08, Version 2.0.0-beta3
+===============================
+
+ * Fix the oAuth2 auth middleware for an array of handlers (Raymond Feng)
+
+
+2015-01-07, Version 2.0.0-beta2
+===============================
+
+ * v2.0.0-beta2 (Miroslav Bajtoš)
+
+ * Allow declarative config of OAuth2 component (Miroslav Bajtoš)
+
+ * Fix bad CLA URL in CONTRIBUTING.md (Ryan Graham)
+
+
 2014-12-17, Version 2.0.0-beta1
 ===============================
+
+ * v2.0.0-beta1 (Raymond Feng)
 
  * Update deps (Raymond Feng)
 
