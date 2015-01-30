@@ -1,5 +1,13 @@
+2015-01-30, Version 2.0.0-beta4
+===============================
+
+ * Make sure bodyParser doesn't interfere with proxy (Raymond Feng)
+
+
 2015-01-08, Version 2.0.0-beta3
 ===============================
+
+ * v2.0.0-beta3 (Raymond Feng)
 
  * Fix the oAuth2 auth middleware for an array of handlers (Raymond Feng)
 
