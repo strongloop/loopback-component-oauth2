@@ -3,13 +3,11 @@
   "properties": {
     "scope": {
       "type": "string",
-      "index": {
-        "unique": true
-      }
+      "id": true,
+      "generated": false
     },
     "description": "string",
     "iconURL": "string",
-    "ttl": "number",
-    "requiredAccessLevel": "number"
+    "ttl": "number"
   }
 }
