@@ -21,6 +21,12 @@
         "enum": ["code", "token"]
       }
     ],
+    "tokenTypes": [
+      {
+        "type": "string",
+        "enum": ["bearer", "jwt", "mac"]
+      }
+    ],
     "clientName": "string",
     "clientURI": "string",
     "logoURI": "string",
