@@ -1,0 +1,43 @@
+{
+  "name": "OAuthClientApplication",
+  "base": "Application",
+  "properties": {
+    "redirectURIs": [ "string" ],
+    "tokenEndpointAuthMethod": {
+      "type": "string",
+      "enum": ["none", "client_secret_post", "client_secret_basic"]
+    },
+    "grantTypes": [
+      {
+        "type": "string",
+        "enum": ["authorization_code", "implicit", "client_credentials",
+          "password", "urn:ietf:params:oauth:grant-type:jwt-bearer",
+          "urn:ietf:params:oauth:grant-type:saml2-bearer"]
+      }
+    ],
+    "responseTypes": [
+      {
+        "type": "string",
+        "enum": ["code", "token"]
+      }
+    ],
+    "tokenTypes": [
+      {
+        "type": "string",
+        "enum": ["bearer", "jwt", "mac"]
+      }
+    ],
+    "clientName": "string",
+    "clientURI": "string",
+    "logoURI": "string",
+    "scope": "string",
+    "contacts": ["string"],
+    "tosURI": "string",
+    "policyURI": "string",
+    "jwksURI": "string",
+    "jwks": "string",
+    "softwareId": "string",
+    "softwareVersion": "string"
+  },
+  "comments": "https://tools.ietf.org/html/draft-ietf-oauth-dyn-reg-24"
+}
