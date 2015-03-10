@@ -1,5 +1,21 @@
+2015-03-10, Version 2.0.0-beta5
+===============================
+
+ * Add tokenTypes (Raymond Feng)
+
+ * Return anonymous user (Raymond Feng)
+
+ * Tidy up application validation (Raymond Feng)
+
+ * Add permission management and subject support for client credentials (Raymond Feng)
+
+ * Pull in changes from upstream (Raymond Feng)
+
+
 2015-01-30, Version 2.0.0-beta4
 ===============================
+
+ * v2.0.0-beta4 (Raymond Feng)
 
  * Make sure bodyParser doesn't interfere with proxy (Raymond Feng)
 
