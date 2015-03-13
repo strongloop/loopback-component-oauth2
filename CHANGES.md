@@ -1,5 +1,19 @@
-2015-03-10, Version 2.0.0-beta5
+2015-03-13, Version 2.0.0-beta6
 ===============================
+
+ * Tidy up token validations (Raymond Feng)
+
+ * Tidy up token generation (Raymond Feng)
+
+ * Allow jwt token type (Raymond Feng)
+
+ * Initial mac token support (Raymond Feng)
+
+
+2015-03-09, Version 2.0.0-beta5
+===============================
+
+ * 2.0.0-beta5 (Raymond Feng)
 
  * Add tokenTypes (Raymond Feng)
 
