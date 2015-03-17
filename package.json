@@ -34,6 +34,7 @@
     "passport-local": "^1.0.0",
     "passport-oauth2-client-password": "^0.1.2",
     "passport-strategy": "^1.0.0",
+    "path-to-regexp": "^1.0.3",
     "pkginfo": "^0.3.0",
     "uid2": "^0.0.3",
     "utils-merge": "^1.0.0"
