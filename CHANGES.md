@@ -1,5 +1,13 @@
+2015-03-17, Version 2.0.0-beta7
+===============================
+
+ * Tidy up scope definition (Raymond Feng)
+
+
 2015-03-13, Version 2.0.0-beta6
 ===============================
+
+ * 2.0.0-beta6 (Raymond Feng)
 
  * Tidy up token validations (Raymond Feng)
 
