@@ -1,6 +1,6 @@
 {
   "name": "loopback-component-oauth2",
-  "version": "2.0.0-beta7",
+  "version": "2.0.0-beta8",
   "description": "OAuth 2.0 provider for LoopBack",
   "keywords": [
     "StrongLoop",

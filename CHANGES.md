@@ -1,5 +1,13 @@
-2015-03-17, Version 2.0.0-beta7
+2015-03-21, Version 2.0.0-beta8
 ===============================
+
+ * Fix up the model definitions (Raymond Feng)
+
+
+2015-03-16, Version 2.0.0-beta7
+===============================
+
+ * 2.0.0-beta7 (Raymond Feng)
 
  * Tidy up scope definition (Raymond Feng)
 
