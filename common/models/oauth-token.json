@@ -4,9 +4,6 @@
   "properties": {
     "id": {
       "type": "string",
-      "index": {
-        "unique": true
-      },
       "id": true,
       "generated": false
     },
@@ -42,12 +39,10 @@
       "type": "string",
       "index": true
     },
-
     "tokenType": {
       "type": "string",
       "enum": [ "Bearer", "MAC" ]
     },
-    "authenticationScheme": "string",
     "hash": "string"
   },
   "relations": {

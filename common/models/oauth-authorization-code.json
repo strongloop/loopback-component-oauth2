@@ -4,9 +4,6 @@
   "properties": {
     "id": {
       "type": "string",
-      "index": {
-        "unique": true
-      },
       "id": true,
       "generated": false
     },

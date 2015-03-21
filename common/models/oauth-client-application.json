@@ -2,6 +2,10 @@
   "name": "OAuthClientApplication",
   "base": "Application",
   "properties": {
+    "clientType": {
+      "type": "string",
+      "enum": ["public", "confidential"]
+    },
     "redirectURIs": [ "string" ],
     "tokenEndpointAuthMethod": {
       "type": "string",
