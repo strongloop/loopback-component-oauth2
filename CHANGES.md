@@ -1,5 +1,13 @@
-2015-03-21, Version 2.0.0-beta8
+2015-04-10, Version 2.0.0-beta9
 ===============================
+
+ * Upgrade to jws 3.0.0 (Raymond Feng)
+
+
+2015-03-20, Version 2.0.0-beta8
+===============================
+
+ * 2.0.0-beta8 (Raymond Feng)
 
  * Fix up the model definitions (Raymond Feng)
 
