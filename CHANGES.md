@@ -1,5 +1,13 @@
+2015-05-16, Version 2.0.0-rc1
+=============================
+
+ * Add revoke middleware (Raymond Feng)
+
+
 2015-04-10, Version 2.0.0-beta9
 ===============================
+
+ * 2.0.0-beta9 (Raymond Feng)
 
  * Upgrade to jws 3.0.0 (Raymond Feng)
 
