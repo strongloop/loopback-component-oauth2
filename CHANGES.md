@@ -1,5 +1,13 @@
+2015-05-17, Version 2.0.0-rc2
+=============================
+
+ * Fix token deletion (Raymond Feng)
+
+
 2015-05-16, Version 2.0.0-rc1
 =============================
+
+ * 2.0.0-rc1 (Raymond Feng)
 
  * Add revoke middleware (Raymond Feng)
 
