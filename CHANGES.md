@@ -1,5 +1,13 @@
-2015-05-17, Version 2.0.0-rc2
+2015-05-18, Version 2.0.0-rc3
 =============================
+
+ * Fixed a minor bug where comparison of allowedScopes and tokenScopes is incorrect (Roy Klopper)
+
+
+2015-05-16, Version 2.0.0-rc2
+=============================
+
+ * 2.0.0-rc2 (Raymond Feng)
 
  * Fix token deletion (Raymond Feng)
 
