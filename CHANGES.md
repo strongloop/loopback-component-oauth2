@@ -1,5 +1,13 @@
-2015-05-18, Version 2.0.0-rc3
+2015-05-28, Version 2.0.0
+=========================
+
+ * Change license to StrongLoop (Raymond Feng)
+
+
+2015-05-17, Version 2.0.0-rc3
 =============================
+
+ * 2.0.0-rc3 (Raymond Feng)
 
  * Fixed a minor bug where comparison of allowedScopes and tokenScopes is incorrect (Roy Klopper)
 
