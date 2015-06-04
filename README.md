@@ -44,5 +44,5 @@ For more information, see [OAuth 2.0](http://docs.strongloop.com/display/LB/OAut
 
 ## Example
 
-This [example](https://github.com/strongloop/loopback-gateway) demonstrates
+This [example](https://github.com/strongloop/strong-gateway) demonstrates
 how to implement an OAuth service provider, complete with protected API access.
