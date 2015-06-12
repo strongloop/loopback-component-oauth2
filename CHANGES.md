@@ -1,4 +1,10 @@
-2015-06-12, Version 2.1.0
+2015-06-12, Version 2.1.1
+=========================
+
+ * Allow models to be customized via options (Raymond Feng)
+
+
+2015-06-11, Version 2.1.0
 =========================
 
  * Fix typo (Raymond Feng)
