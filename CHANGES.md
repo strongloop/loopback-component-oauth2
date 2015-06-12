@@ -1,4 +1,10 @@
-2015-06-12, Version 2.1.1
+2015-06-12, Version 2.2.0
+=========================
+
+ * Tidy up the models to work with MySQL (Raymond Feng)
+
+
+2015-06-11, Version 2.1.1
 =========================
 
  * Allow models to be customized via options (Raymond Feng)
