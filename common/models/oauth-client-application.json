@@ -38,9 +38,23 @@
     "tosURI": "string",
     "policyURI": "string",
     "jwksURI": "string",
-    "jwks": "string",
+    "jwks": {
+      "type": "string",
+      "mysql": {
+        "dataLength": 4096,
+        "dataType": "TEXT"
+      }
+    },
     "softwareId": "string",
-    "softwareVersion": "string"
+    "softwareVersion": "string",
+
+    "callbackUrls": null,
+    "permissions": null,
+    "authenticationEnabled": null,
+    "anonymousAllowed": null,
+    "authenticationSchemes": null,
+    "icon": null,
+    "url": null
   },
   "comments": "https://tools.ietf.org/html/draft-ietf-oauth-dyn-reg-24"
 }
