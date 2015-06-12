@@ -1,3 +1,15 @@
+2015-06-12, Version 2.1.0
+=========================
+
+ * Fix typo (Raymond Feng)
+
+ * Clean up oAuth2 client app attributes (Raymond Feng)
+
+ * Add blip and license check (Raymond Feng)
+
+ * Updated example link (Bryan Clark)
+
+
 2015-05-28, Version 2.0.0
 =========================
 
