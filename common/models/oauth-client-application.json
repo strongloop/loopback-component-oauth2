@@ -2,6 +2,12 @@
   "name": "OAuthClientApplication",
   "base": "Application",
   "properties": {
+    "id": {
+      "type": "string",
+      "id": true,
+      "generated": false,
+      "length": 128
+    },
     "clientType": {
       "type": "string",
       "enum": ["public", "confidential"]
@@ -33,7 +39,7 @@
     "clientName": "string",
     "clientURI": "string",
     "logoURI": "string",
-    "scope": "string",
+    "scopes": ["string"],
     "contacts": ["string"],
     "tosURI": "string",
     "policyURI": "string",

@@ -5,10 +5,12 @@
     "id": {
       "type": "string",
       "id": true,
+      "length": 300,
       "generated": false
     },
     "appId": {
       "type": "string",
+      "length": 128,
       "index": true
     },
     "userId": {
@@ -33,10 +35,12 @@
     ],
     "authorizationCode": {
       "type": "string",
+      "length": 300,
       "index": true
     },
     "refreshToken": {
       "type": "string",
+      "length": 300,
       "index": true
     },
     "tokenType": {
@@ -48,7 +52,7 @@
   "relations": {
     "application": {
       "type": "belongsTo",
-      "model": "Application",
+      "model": "OAuthClientApplication",
       "foreignKey": "appId"
     },
     "user": {

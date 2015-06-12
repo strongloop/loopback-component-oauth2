@@ -4,6 +4,7 @@
   "properties": {
     "appId": {
       "type": "string",
+      "length": 128,
       "index": true
     },
     "userId": {
@@ -24,7 +25,7 @@
   "relations": {
     "application": {
       "type": "belongsTo",
-      "model": "Application",
+      "model": "OAuthClientApplication",
       "foreignKey": "appId"
     },
     "user": {

@@ -3,6 +3,8 @@
   "properties": {
     "scope": {
       "type": "string",
+      "length": 255,
+      "index": true,
       "description": "The scope name"
     },
     "route": {
