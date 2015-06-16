@@ -1,3 +1,9 @@
+2015-06-16, Version 2.2.1
+=========================
+
+ * Allow options.userModel/applicationModel to be strings (Raymond Feng)
+
+
 2015-06-12, Version 2.2.0
 =========================
 
