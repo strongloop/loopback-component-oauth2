@@ -1,3 +1,11 @@
+2015-06-18, Version 2.3.0
+=========================
+
+ * Remove auth code after 1st use (Raymond Feng)
+
+ * Allow options.scopes to be a custom function (Raymond Feng)
+
+
 2015-06-16, Version 2.2.1
 =========================
 
