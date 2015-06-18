@@ -1,3 +1,9 @@
+2015-06-18, Version 2.3.1
+=========================
+
+ * Allow checkAccessToken to a custom function (Raymond Feng)
+
+
 2015-06-18, Version 2.3.0
 =========================
 
