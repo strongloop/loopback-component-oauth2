@@ -1,3 +1,9 @@
+2015-06-23, Version 2.3.2
+=========================
+
+ * Pass req to checkAccessToken (Raymond Feng)
+
+
 2015-06-18, Version 2.3.1
 =========================
 
