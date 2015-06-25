@@ -1,3 +1,9 @@
+2015-06-25, Version 2.3.3
+=========================
+
+ * Add an option to add http headers for app/user ids (Raymond Feng)
+
+
 2015-06-23, Version 2.3.2
 =========================
 
