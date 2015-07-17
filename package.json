@@ -1,6 +1,6 @@
 {
   "name": "loopback-component-oauth2",
-  "version": "2.3.3",
+  "version": "2.3.4",
   "description": "OAuth 2.0 provider for LoopBack",
   "keywords": [
     "StrongLoop",
@@ -48,7 +48,7 @@
     "vows": "^0.8.1"
   },
   "optionalDependencies": {
-    "sl-blip": "http://blip.strongloop.com/loopback-component-oauth2@2.3.3"
+    "sl-blip": "http://blip.strongloop.com/loopback-component-oauth2@2.3.4"
   },
   "engines": {
     "node": ">= 0.4.0"

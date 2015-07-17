@@ -1,3 +1,9 @@
+2015-07-17, Version 2.3.4
+=========================
+
+ * Fix the ref to route.methods (Raymond Feng)
+
+
 2015-06-25, Version 2.3.3
 =========================
 
