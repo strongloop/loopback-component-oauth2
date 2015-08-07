@@ -1,3 +1,9 @@
+2015-08-07, Version 2.3.5
+=========================
+
+ * Allow scopes to be string[] (Raymond Feng)
+
+
 2015-07-17, Version 2.3.4
 =========================
 
