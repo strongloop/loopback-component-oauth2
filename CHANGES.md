@@ -1,3 +1,11 @@
+2015-08-31, Version 2.3.6
+=========================
+
+ * Add debug for authenticate options (Raymond Feng)
+
+ * Fix OAuthScope options (Jonathan Woolsey)
+
+
 2015-08-07, Version 2.3.5
 =========================
 
