@@ -56,8 +56,5 @@
   "scripts": {
     "test": "mocha --reporter spec --require test/bootstrap/node test/*.test.js test/**/*.test.js"
   },
-  "license": {
-    "name": "StrongLoop",
-    "url": "https://github.com/strongloop/loopback-component-oauth2/blob/master/LICENSE"
-  }
+  "license": "SEE LICENSE IN LICENSE.md"
 }
