@@ -1,3 +1,13 @@
+2016-02-19, Version 2.3.7
+=========================
+
+ * Remove sl-blip from dependencies (Miroslav Bajtoš)
+
+ * Refer to licenses with a link (Sam Roberts)
+
+ * Use strongloop conventions for licensing (Sam Roberts)
+
+
 2015-08-31, Version 2.3.6
 =========================
 
@@ -83,15 +93,11 @@
 2015-05-17, Version 2.0.0-rc3
 =============================
 
- * 2.0.0-rc3 (Raymond Feng)
-
  * Fixed a minor bug where comparison of allowedScopes and tokenScopes is incorrect (Roy Klopper)
 
 
 2015-05-16, Version 2.0.0-rc2
 =============================
-
- * 2.0.0-rc2 (Raymond Feng)
 
  * Fix token deletion (Raymond Feng)
 
@@ -99,15 +105,11 @@
 2015-05-16, Version 2.0.0-rc1
 =============================
 
- * 2.0.0-rc1 (Raymond Feng)
-
  * Add revoke middleware (Raymond Feng)
 
 
 2015-04-10, Version 2.0.0-beta9
 ===============================
-
- * 2.0.0-beta9 (Raymond Feng)
 
  * Upgrade to jws 3.0.0 (Raymond Feng)
 
@@ -115,23 +117,17 @@
 2015-03-20, Version 2.0.0-beta8
 ===============================
 
- * 2.0.0-beta8 (Raymond Feng)
-
  * Fix up the model definitions (Raymond Feng)
 
 
 2015-03-16, Version 2.0.0-beta7
 ===============================
 
- * 2.0.0-beta7 (Raymond Feng)
-
  * Tidy up scope definition (Raymond Feng)
 
 
 2015-03-13, Version 2.0.0-beta6
 ===============================
-
- * 2.0.0-beta6 (Raymond Feng)
 
  * Tidy up token validations (Raymond Feng)
 
@@ -144,8 +140,6 @@
 
 2015-03-09, Version 2.0.0-beta5
 ===============================
-
- * 2.0.0-beta5 (Raymond Feng)
 
  * Add tokenTypes (Raymond Feng)
 
@@ -343,10 +337,6 @@
 
  * Update support files. (Jared Hanson)
 
-
-2014-01-05, Version 1.0.1
-=========================
-
  * Bump version to 1.0.1. (Jared Hanson)
 
  * Update chai plugins and test cases. (Jared Hanson)
@@ -358,10 +348,6 @@
  * Update server.test.js (noamcb)
 
  * Update server.js (noamcb)
-
-
-2013-09-24, Version 1.0.0
-=========================
 
  * Bump version to 1.0.0. (Jared Hanson)
 
@@ -528,8 +514,6 @@
  * Port password exchange test cases to Mocha. (Jared Hanson)
 
  * Port clientCredentials exchange test cases to Mocha. (Jared Hanson)
-
- * Update support files. (Jared Hanson)
 
  * Port authorizationCode exchange test cases to Mocha. (Jared Hanson)
 
