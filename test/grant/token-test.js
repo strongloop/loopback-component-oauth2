@@ -1,3 +1,8 @@
+// Copyright IBM Corp. 2012. All Rights Reserved.
+// Node module: loopback-component-oauth2
+// US Government Users Restricted Rights - Use, duplication or disclosure
+// restricted by GSA ADP Schedule Contract with IBM Corp.
+
 var vows = require('vows');
 var assert = require('assert');
 var util = require('util');

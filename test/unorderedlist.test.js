@@ -1,3 +1,8 @@
+// Copyright IBM Corp. 2013. All Rights Reserved.
+// Node module: loopback-component-oauth2
+// US Government Users Restricted Rights - Use, duplication or disclosure
+// restricted by GSA ADP Schedule Contract with IBM Corp.
+
 var UnorderedList = require('../lib/unorderedlist');
   
 

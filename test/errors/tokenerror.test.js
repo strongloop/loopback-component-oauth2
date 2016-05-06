@@ -1,3 +1,8 @@
+// Copyright IBM Corp. 2013,2015. All Rights Reserved.
+// Node module: loopback-component-oauth2
+// US Government Users Restricted Rights - Use, duplication or disclosure
+// restricted by GSA ADP Schedule Contract with IBM Corp.
+
 var OAuth2Error = require('../../lib/errors/oauth2error')
   , TokenError = require('../../lib/errors/tokenerror');
 
