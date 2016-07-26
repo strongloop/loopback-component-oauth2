@@ -36,6 +36,7 @@
     "passport-strategy": "^1.0.0",
     "path-to-regexp": "^1.2.0",
     "pkginfo": "^0.4.0",
+    "strong-globalize": "^2.5.8",
     "uid2": "^0.0.3",
     "utils-merge": "^1.0.0"
   },
