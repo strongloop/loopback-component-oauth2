@@ -6,13 +6,12 @@
 /* global describe, it, expect, before */
 /* jshint camelcase: false, expr: true, sub: true */
 
-var chai = require('chai')
-  , authorization = require('../../lib/middleware/authorization')
-  , Server = require('../../lib/server');
-
+'use strict';
+var chai = require('chai'),
+  authorization = require('../../lib/middleware/authorization'),
+  Server = require('../../lib/server');
 
 describe('authorization', function() {
-
   var server = new Server();
   server.serializeClient(function(client, done) {
     if (client.id == '1234' || client.id == '2234' || client.id == '3234') { return done(null, client.id); }
@@ -23,7 +22,7 @@ describe('authorization', function() {
     return {
       clientID: req.query['client_id'],
       redirectURI: req.query['redirect_uri'],
-      scope: req.query['scope']
+      scope: req.query['scope'],
     };
   });
 
@@ -33,10 +32,10 @@ describe('authorization', function() {
 
   function validate(clientID, redirectURI, done) {
     if (clientID == '1234' && redirectURI == 'http://example.com/auth/callback') {
-      return done(null, { id: '1234', name: 'Example' }, 'http://example.com/auth/callback');
+      return done(null, {id: '1234', name: 'Example'}, 'http://example.com/auth/callback');
     }
     if (clientID == '1235' && redirectURI == 'http://example.com/auth/callback') {
-      return done(null, { id: '1235', name: 'Example' }, 'http://example.com/auth/callback');
+      return done(null, {id: '1235', name: 'Example'}, 'http://example.com/auth/callback');
     }
     if (clientID == '2234') {
       return done(null, false);
@@ -50,9 +49,8 @@ describe('authorization', function() {
     return done(new Error('something went wrong while validating client'));
   }
 
-
   it('should be named authorization', function() {
-    expect(authorization(server, function(){}).name).to.equal('authorization');
+    expect(authorization(server, function() {}).name).to.equal('authorization');
   });
 
   it('should throw if constructed without a server argument', function() {
@@ -74,7 +72,7 @@ describe('authorization', function() {
       chai.connect.use(authorization(server, validate))
         .req(function(req) {
           request = req;
-          req.query = { response_type: 'code', client_id: '1234', redirect_uri: 'http://example.com/auth/callback' };
+          req.query = {response_type: 'code', client_id: '1234', redirect_uri: 'http://example.com/auth/callback'};
           req.session = {};
         })
         .next(function(e) {
@@ -148,7 +146,7 @@ describe('authorization', function() {
       chai.connect.use(authorization(server, validate))
         .req(function(req) {
           request = req;
-          req.query = { response_type: 'foo', client_id: '1234', redirect_uri: 'http://example.com/auth/callback' };
+          req.query = {response_type: 'foo', client_id: '1234', redirect_uri: 'http://example.com/auth/callback'};
           req.session = {};
         })
         .next(function(e) {
@@ -177,7 +175,7 @@ describe('authorization', function() {
       chai.connect.use(authorization(server, validate))
         .req(function(req) {
           request = req;
-          req.query = { response_type: 'code', client_id: '2234', redirect_uri: 'http://example.com/auth/callback' };
+          req.query = {response_type: 'code', client_id: '2234', redirect_uri: 'http://example.com/auth/callback'};
           req.session = {};
         })
         .next(function(e) {
@@ -208,7 +206,7 @@ describe('authorization', function() {
       chai.connect.use(authorization(server, validate))
         .req(function(req) {
           request = req;
-          req.query = { response_type: 'code', client_id: '3234', redirect_uri: 'http://example.com/auth/callback' };
+          req.query = {response_type: 'code', client_id: '3234', redirect_uri: 'http://example.com/auth/callback'};
           req.session = {};
         })
         .next(function(e) {
@@ -239,7 +237,7 @@ describe('authorization', function() {
       chai.connect.use(authorization(server, validate))
         .req(function(req) {
           request = req;
-          req.query = { response_type: 'throw-error', client_id: '1234', redirect_uri: 'http://example.com/auth/callback' };
+          req.query = {response_type: 'throw-error', client_id: '1234', redirect_uri: 'http://example.com/auth/callback'};
           req.session = {};
         })
         .next(function(e) {
@@ -266,7 +264,7 @@ describe('authorization', function() {
       chai.connect.use(authorization(server, validate))
         .req(function(req) {
           request = req;
-          req.query = { response_type: 'code', client_id: '9234', redirect_uri: 'http://example.com/auth/callback' };
+          req.query = {response_type: 'code', client_id: '9234', redirect_uri: 'http://example.com/auth/callback'};
           req.session = {};
         })
         .next(function(e) {
@@ -295,7 +293,7 @@ describe('authorization', function() {
       chai.connect.use(authorization(server, validate))
         .req(function(req) {
           request = req;
-          req.query = { response_type: 'code', client_id: '4234', redirect_uri: 'http://example.com/auth/callback' };
+          req.query = {response_type: 'code', client_id: '4234', redirect_uri: 'http://example.com/auth/callback'};
           req.session = {};
         })
         .next(function(e) {
@@ -322,7 +320,7 @@ describe('authorization', function() {
       chai.connect.use(authorization(server, validate))
         .req(function(req) {
           request = req;
-          req.query = { response_type: 'code', client_id: '1235', redirect_uri: 'http://example.com/auth/callback' };
+          req.query = {response_type: 'code', client_id: '1235', redirect_uri: 'http://example.com/auth/callback'};
           req.session = {};
         })
         .next(function(e) {
@@ -356,7 +354,7 @@ describe('authorization', function() {
       chai.connect.use(authorization(server, validate))
         .req(function(req) {
           request = req;
-          req.query = { response_type: 'code', client_id: '1234', redirect_uri: 'http://example.com/auth/callback' };
+          req.query = {response_type: 'code', client_id: '1234', redirect_uri: 'http://example.com/auth/callback'};
         })
         .next(function(e) {
           err = e;
@@ -367,7 +365,8 @@ describe('authorization', function() {
 
     it('should error', function() {
       expect(err).to.be.an.instanceOf(Error);
-      expect(err.message).to.equal('OAuth2orize requires session support. Did you forget app.use(express.session(...))?');
+      expect(err.message).to.equal(
+        'OAuth2orize requires session support. Did you forget app.use(express.session(...))?');
     });
 
     it('should not start transaction', function() {
@@ -378,7 +377,7 @@ describe('authorization', function() {
   describe('validate with scope', function() {
     function validate(clientID, redirectURI, scope, done) {
       if (clientID == '1234' && redirectURI == 'http://example.com/auth/callback' && scope == 'write') {
-        return done(null, { id: '1234', name: 'Example' }, 'http://example.com/auth/callback');
+        return done(null, {id: '1234', name: 'Example'}, 'http://example.com/auth/callback');
       }
       return done(new Error('something went wrong while validating client'));
     }
@@ -390,7 +389,7 @@ describe('authorization', function() {
         chai.connect.use(authorization(server, validate))
           .req(function(req) {
             request = req;
-            req.query = { response_type: 'code', client_id: '1234', redirect_uri: 'http://example.com/auth/callback', scope: 'write' };
+            req.query = {response_type: 'code', client_id: '1234', redirect_uri: 'http://example.com/auth/callback', scope: 'write'};
             req.session = {};
           })
           .next(function(e) {
@@ -434,7 +433,7 @@ describe('authorization', function() {
   describe('validate with scope and type', function() {
     function validate(clientID, redirectURI, scope, type, done) {
       if (clientID == '1234' && redirectURI == 'http://example.com/auth/callback' && scope == 'write' && type == 'code') {
-        return done(null, { id: '1234', name: 'Example' }, 'http://example.com/auth/callback');
+        return done(null, {id: '1234', name: 'Example'}, 'http://example.com/auth/callback');
       }
       return done(new Error('something went wrong while validating client'));
     }
@@ -446,7 +445,7 @@ describe('authorization', function() {
         chai.connect.use(authorization(server, validate))
           .req(function(req) {
             request = req;
-            req.query = { response_type: 'code', client_id: '1234', redirect_uri: 'http://example.com/auth/callback', scope: 'write' };
+            req.query = {response_type: 'code', client_id: '1234', redirect_uri: 'http://example.com/auth/callback', scope: 'write'};
             req.session = {};
           })
           .next(function(e) {
@@ -490,7 +489,7 @@ describe('authorization', function() {
   describe('validate with authorization request', function() {
     function validate(areq, done) {
       if (areq.clientID == '1234' && areq.redirectURI == 'http://example.com/auth/callback') {
-        return done(null, { id: '1234', name: 'Example' }, 'http://example.com/auth/callback');
+        return done(null, {id: '1234', name: 'Example'}, 'http://example.com/auth/callback');
       }
       return done(new Error('something went wrong while validating client'));
     }
@@ -502,7 +501,7 @@ describe('authorization', function() {
         chai.connect.use(authorization(server, validate))
           .req(function(req) {
             request = req;
-            req.query = { response_type: 'code', client_id: '1234', redirect_uri: 'http://example.com/auth/callback' };
+            req.query = {response_type: 'code', client_id: '1234', redirect_uri: 'http://example.com/auth/callback'};
             req.session = {};
           })
           .next(function(e) {
@@ -546,10 +545,10 @@ describe('authorization', function() {
       var request, err;
 
       before(function(done) {
-        chai.connect.use(authorization(server, { idLength: 12 }, validate))
+        chai.connect.use(authorization(server, {idLength: 12}, validate))
           .req(function(req) {
             request = req;
-            req.query = { response_type: 'code', client_id: '1234', redirect_uri: 'http://example.com/auth/callback' };
+            req.query = {response_type: 'code', client_id: '1234', redirect_uri: 'http://example.com/auth/callback'};
             req.session = {};
           })
           .next(function(e) {
@@ -593,10 +592,10 @@ describe('authorization', function() {
       var request, err;
 
       before(function(done) {
-        chai.connect.use(authorization(server, { sessionKey: 'oauth2z' }, validate))
+        chai.connect.use(authorization(server, {sessionKey: 'oauth2z'}, validate))
           .req(function(req) {
             request = req;
-            req.query = { response_type: 'code', client_id: '1234', redirect_uri: 'http://example.com/auth/callback' };
+            req.query = {response_type: 'code', client_id: '1234', redirect_uri: 'http://example.com/auth/callback'};
             req.session = {};
           })
           .next(function(e) {
@@ -643,7 +642,7 @@ describe('authorization', function() {
 
     function validate(clientID, redirectURI, done) {
       if (clientID == '1234' && redirectURI == 'http://example.com/auth/callback') {
-        return done(null, { id: '1234', name: 'Example' }, 'http://example.com/auth/callback');
+        return done(null, {id: '1234', name: 'Example'}, 'http://example.com/auth/callback');
       }
       return done(new Error('something went wrong while validating client'));
     }
@@ -655,7 +654,7 @@ describe('authorization', function() {
         chai.connect.use(authorization(server, validate))
           .req(function(req) {
             request = req;
-            req.query = { response_type: 'code', client_id: '1234', redirect_uri: 'http://example.com/auth/callback' };
+            req.query = {response_type: 'code', client_id: '1234', redirect_uri: 'http://example.com/auth/callback'};
             req.session = {};
           })
           .next(function(e) {
@@ -677,5 +676,4 @@ describe('authorization', function() {
       });
     });
   });
-
 });
