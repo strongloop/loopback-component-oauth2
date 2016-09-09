@@ -1,3 +1,17 @@
+2016-09-09, Version 2.5.0
+=========================
+
+ * Fix deprecation warnings. (Jordan Pickwell)
+
+ * Update dependencies (Loay)
+
+ * Add eslint infrastructure (Loay)
+
+ * Add globalization (Loay)
+
+ * Update URLs in CONTRIBUTING.md (#36) (Ryan Graham)
+
+
 2016-05-06, Version 2.4.1
 =========================
 
