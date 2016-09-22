@@ -47,7 +47,7 @@
     "chai-oauth2orize-grant": "^0.2.0",
     "eslint": "^2.13.1",
     "eslint-config-loopback": "^4.0.0",
-    "loopback": "^3.0.0-alpha.4",
+    "loopback": "^3.0.0",
     "mocha": "^3.0.1",
     "vows": "^0.8.1"
   },
