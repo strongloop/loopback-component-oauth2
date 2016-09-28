@@ -13,7 +13,7 @@
   "cbd12265f4ab78b30a0977e37aefcf37": "Paramètre obligatoire manquant : {{password}}",
   "d837f7c0309bf4816cbbb22b57473733": "L'échange {{oauth2orize.password}} requiert {{issue}} callback",
   "ff7883d90a5fe850e026885759165406": "Données d'identification du propriétaire de la ressource non valides",
-  "6d3b5c2b2c7c20cd8907a0b090f0e89c": "Jeton d'actualisation non valide ",
+  "6d3b5c2b2c7c20cd8907a0b090f0e89c": "Jeton d'actualisation non valide",
   "740f3fb2bd1358d65943e735224d23e5": "Paramètre obligatoire manquant : {{refresh_token}}",
   "ec9ddf242c3da3b5cf44def6398706ec": "L'échange {{oauth2orize.refreshToken}} requiert {{issue}} callback",
   "3bffb3bbef4312d6bcbabd3240e79ef2": "L'octroi {{oauth2orize.code}} requiert {{issue}} callback",
