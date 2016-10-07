@@ -1,3 +1,17 @@
+2016-10-07, Version 2.5.1
+=========================
+
+ * Update ja translation file (Candy)
+
+ * Update translation files - round#2 (Candy)
+
+ * Add translated files (gunjpan)
+
+ * Update deps to loopback 3.0.0 RC (Miroslav Bajtoš)
+
+ * Use loopback@3.0.0-alpha for running the tests. (Miroslav Bajtoš)
+
+
 2016-09-09, Version 2.5.0
 =========================
 
