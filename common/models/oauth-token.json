@@ -5,7 +5,7 @@
     "id": {
       "type": "string",
       "id": true,
-      "length": 300,
+      "length": 250,
       "generated": false
     },
     "appId": {
