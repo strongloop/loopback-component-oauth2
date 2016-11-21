@@ -1,6 +1,9 @@
 {
   "name": "loopback-component-oauth2",
   "version": "2.5.1",
+  "publishConfig": {
+    "tag": "lts"
+  },
   "description": "OAuth 2.0 provider for LoopBack",
   "keywords": [
     "StrongLoop",
