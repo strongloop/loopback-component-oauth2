@@ -1,7 +1,10 @@
 {
   "name": "loopback-component-oauth2",
-  "version": "2.5.1",
+  "version": "3.0.0-alpha.1",
   "description": "OAuth 2.0 provider for LoopBack",
+  "engines": {
+    "node": ">=4"
+  },
   "keywords": [
     "StrongLoop",
     "LoopBack",
