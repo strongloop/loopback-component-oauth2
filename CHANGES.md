@@ -1,3 +1,15 @@
+2016-12-21, Version 3.0.0
+=========================
+
+ * Update paid support URL (Siddhi Pai)
+
+ * Drop support for Node v0.10 and v0.12 (Siddhi Pai)
+
+ * Start the development of the next major version (Siddhi Pai)
+
+ * Update README doc links (Candy)
+
+
 2016-10-07, Version 2.5.1
 =========================
 
