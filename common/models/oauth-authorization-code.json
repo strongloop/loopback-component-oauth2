@@ -45,7 +45,7 @@
     },
     "user": {
       "type": "belongsTo",
-      "model": "User",
+      "model": "OAuthUser",
       "foreignKey": "userId"
     }
   }
