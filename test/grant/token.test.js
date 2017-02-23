@@ -1,7 +1,7 @@
-// Copyright IBM Corp. 2013. All Rights Reserved.
+// Copyright IBM Corp. 2013,2016. All Rights Reserved.
 // Node module: loopback-component-oauth2
-// US Government Users Restricted Rights - Use, duplication or disclosure
-// restricted by GSA ADP Schedule Contract with IBM Corp.
+// This file is licensed under the MIT License.
+// License text available at https://opensource.org/licenses/MIT
 
 /* global describe, it, expect, before */
 /* jshint camelcase: false, expr: true */
