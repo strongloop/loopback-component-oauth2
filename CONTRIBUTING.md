@@ -1,7 +1,7 @@
 ### Contributing ###
 
 Thank you for your interest in `loopback-component-oauth2`, an open source project
-administered by StrongLoop.
+administered by IBM.
 
 Contributing to `loopback-component-oauth2` is easy. In a few simple steps:
 
@@ -26,53 +26,53 @@ Contributing to `loopback-component-oauth2` is easy. In a few simple steps:
 
   By signing this Individual Contributor License Agreement
   ("Agreement"), and making a Contribution (as defined below) to
-  StrongLoop, Inc. ("StrongLoop"), You (as defined below) accept and
+  IBM Corp. ("IBM"), You (as defined below) accept and
   agree to the following terms and conditions for Your present and
-  future Contributions submitted to StrongLoop. Except for the license
-  granted in this Agreement to StrongLoop and recipients of software
-  distributed by StrongLoop, You reserve all right, title, and interest
+  future Contributions submitted to IBM. Except for the license
+  granted in this Agreement to IBM and recipients of software
+  distributed by IBM, You reserve all right, title, and interest
   in and to Your Contributions.
 
   1. Definitions
 
      "You" or "Your" shall mean the copyright owner or the individual
      authorized by the copyright owner that is entering into this
-     Agreement with StrongLoop.
+     Agreement with IBM.
 
      "Contribution" shall mean any original work of authorship,
      including any modifications or additions to an existing work, that
-     is intentionally submitted by You to StrongLoop for inclusion in,
+     is intentionally submitted by You to IBM for inclusion in,
      or documentation of, any of the products owned or managed by
-     StrongLoop ("Work"). For purposes of this definition, "submitted"
+     IBM ("Work"). For purposes of this definition, "submitted"
      means any form of electronic, verbal, or written communication
-     sent to StrongLoop or its representatives, including but not
+     sent to IBM or its representatives, including but not
      limited to communication or electronic mailing lists, source code
      control systems, and issue tracking systems that are managed by,
-     or on behalf of, StrongLoop for the purpose of discussing and
+     or on behalf of, IBM for the purpose of discussing and
      improving the Work, but excluding communication that is
      conspicuously marked or otherwise designated in writing by You as
      "Not a Contribution."
 
-  2. You Grant a Copyright License to StrongLoop
+  2. You Grant a Copyright License to IBM
 
      Subject to the terms and conditions of this Agreement, You hereby
-     grant to StrongLoop and recipients of software distributed by
-     StrongLoop, a perpetual, worldwide, non-exclusive, no-charge,
+     grant to IBM and recipients of software distributed by
+     IBM, a perpetual, worldwide, non-exclusive, no-charge,
      royalty-free, irrevocable copyright license to reproduce, prepare
      derivative works of, publicly display, publicly perform,
      sublicense, and distribute Your Contributions and such derivative
      works under any license and without any restrictions.
 
-  3. You Grant a Patent License to StrongLoop
+  3. You Grant a Patent License to IBM
 
      Subject to the terms and conditions of this Agreement, You hereby
-     grant to StrongLoop and to recipients of software distributed by
-     StrongLoop a perpetual, worldwide, non-exclusive, no-charge,
+     grant to IBM and to recipients of software distributed by
+     IBM a perpetual, worldwide, non-exclusive, no-charge,
      royalty-free, irrevocable (except as stated in this Section)
      patent license to make, have made, use, offer to sell, sell,
      import, and otherwise transfer the Work under any license and
      without any restrictions. The patent license You grant to
-     StrongLoop under this Section applies only to those patent claims
+     IBM under this Section applies only to those patent claims
      licensable by You that are necessarily infringed by Your
      Contributions(s) alone or by combination of Your Contributions(s)
      with the Work to which such Contribution(s) was submitted. If any
@@ -84,7 +84,7 @@ Contributing to `loopback-component-oauth2` is easy. In a few simple steps:
      this Agreement for that Contribution or Work shall terminate as
      of the date such litigation is filed.
 
-  4. You Have the Right to Grant Licenses to StrongLoop
+  4. You Have the Right to Grant Licenses to IBM
 
      You represent that You are legally entitled to grant the licenses
      in this Agreement.
@@ -94,7 +94,7 @@ Contributing to `loopback-component-oauth2` is easy. In a few simple steps:
      the Contributions on behalf of that employer, that Your employer
      has waived such rights for Your Contributions, or that Your
      employer has executed a separate Corporate Contributor License
-     Agreement with StrongLoop.
+     Agreement with IBM.
 
   5. The Contributions Are Your Original Work
 
@@ -123,7 +123,7 @@ Contributing to `loopback-component-oauth2` is easy. In a few simple steps:
 
   6. No Warranties or Conditions
 
-     StrongLoop acknowledges that unless required by applicable law or
+     IBM acknowledges that unless required by applicable law or
      agreed to in writing, You provide Your Contributions on an "AS IS"
      BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, EITHER
      EXPRESS OR IMPLIED, INCLUDING, WITHOUT LIMITATION, ANY WARRANTIES
@@ -133,7 +133,7 @@ Contributing to `loopback-component-oauth2` is easy. In a few simple steps:
   7. Submission on Behalf of Others
 
      If You wish to submit work that is not Your original creation, You
-     may submit it to StrongLoop separately from any Contribution,
+     may submit it to IBM separately from any Contribution,
      identifying the complete details of its source and of any license
      or other restriction (including, but not limited to, related
      patents, trademarks, and license agreements) of which You are
@@ -142,7 +142,7 @@ Contributing to `loopback-component-oauth2` is easy. In a few simple steps:
 
   8. Agree to Notify of Change of Circumstances
 
-     You agree to notify StrongLoop of any facts or circumstances of
+     You agree to notify IBM of any facts or circumstances of
      which You become aware that would make these representations
      inaccurate in any respect. Email us at callback@strongloop.com.
 ```

@@ -1,7 +1,10 @@
 {
   "name": "loopback-component-oauth2",
-  "version": "2.5.1",
+  "version": "3.0.0",
   "description": "OAuth 2.0 provider for LoopBack",
+  "engines": {
+    "node": ">= 0.4.0"
+  },
   "keywords": [
     "StrongLoop",
     "LoopBack",
@@ -51,13 +54,10 @@
     "mocha": "^3.0.1",
     "vows": "^0.8.1"
   },
-  "engines": {
-    "node": ">= 0.4.0"
-  },
   "scripts": {
     "test": "mocha --reporter spec --require test/bootstrap/node test/*.test.js test/**/*.test.js",
     "lint": "eslint .",
     "posttest": "npm run lint"
   },
-  "license": "SEE LICENSE IN LICENSE.md"
+  "license": "MIT"
 }
