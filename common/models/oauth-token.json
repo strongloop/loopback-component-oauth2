@@ -1,6 +1,6 @@
 {
   "name": "OAuthAccessToken",
-  "base": "PersistedModel",
+  "base": "AccessToken",
   "properties": {
     "id": {
       "type": "string",
@@ -15,15 +15,6 @@
     },
     "userId": {
       "type": "string",
-      "index": true
-    },
-    "issuedAt": {
-      "type": "date",
-      "index": true
-    },
-    "expiresIn": "number",
-    "expiredAt": {
-      "type": "date",
       "index": true
     },
     "scopes": [ "string" ],

@@ -1,0 +1,5 @@
+{
+  "name": "OAuthUser",
+  "base": "User"
+}
+
