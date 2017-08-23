@@ -1,5 +1,85 @@
 # loopback-component-oauth2
 
+## What is different in this fork?
+
+Apart from this readme, there has been a change to the lib index. This change is the addition of an option called "oauthACLgateway".
+
+If **oauthACLgateway** is *true*, we will check if the *access_token* provided (to query or body) is a user token. If the token is a user token (exists in AccessToken model), we skip oauth authentication.
+If no token is provided, we skip oauth authentication. Finally, if the option is omitted or false, the module will work as the original.
+
+### How to use
+
+Put something like this in your middleware.json:
+
+```json
+"auth": {
+    "loopback-component-oauth2#authenticate": { "paths" : ["/api"], "params": [{
+      "oauthACLgateway" : true,
+      "scopes": {
+        "read_only": [
+          {
+            "methods": "get",
+            "path": "/api"
+          }
+        ],
+        "write_only": [
+          {
+            "methods": "post",
+            "path": "/api"
+          }
+        ],
+        "read_write": [
+          {
+            "methods": ["get","post"],
+            "path": "/api"
+          }
+        ],
+        "all": [
+          {
+            "methods": "all",
+            "path": "/api"
+          }
+        ]
+      }
+    }] }
+  },
+```
+
+Additionally you will need to put the settings in the component-config.json. Here is the one we use as an example:
+
+```json
+"loopback-component-oauth2": {
+    "dataSource": "db",
+    "resourceServer": true,
+    "authorizationServer": true,
+    "loginPage": "/loginOauth",
+    "loginPath": "/loginOauthStep2",
+    "tokenPath": "/oauth/token"
+  },
+```
+
+Finally, we put this in our loopback server.js after the boot function call:
+
+```js
+let options = {
+  dataSource: app.dataSources.db, // Data source for oAuth2 metadata persistence
+  resourceServer: true,
+  authorizationServer: true,
+  loginPage: '/loginOauth', // The login page URL
+  loginPath: '/loginOauthStep2', // The login form processing URL
+  tokenPath: "/oauth/token",
+};
+
+oauth2.oAuth2Provider(
+  app, // The app instance
+  options // The options
+);
+```
+
+That's it! Enjoy!
+
+## From the original repo:
+
 The LoopBack oAuth 2.0 component provides full integration between [OAuth 2.0](http://tools.ietf.org/html/rfc6749)
 and [LoopBack](http://loopback.io). It enables LoopBack applications to function
 as an oAuth 2.0 provider to authenticate and authorize client applications and/or
