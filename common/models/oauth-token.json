@@ -5,7 +5,7 @@
     "id": {
       "type": "string",
       "id": true,
-      "length": 300,
+      "length": 250,
       "generated": false
     },
     "appId": {
@@ -35,12 +35,12 @@
     ],
     "authorizationCode": {
       "type": "string",
-      "length": 300,
+      "length": 250,
       "index": true
     },
     "refreshToken": {
       "type": "string",
-      "length": 300,
+      "length": 250,
       "index": true
     },
     "tokenType": {
@@ -62,4 +62,3 @@
     }
   }
 }
-
