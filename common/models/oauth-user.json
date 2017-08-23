@@ -1,0 +1,17 @@
+{
+  "name": "OAuthUser",
+  "base": "User",
+  "relations": {
+    "accessTokens": {
+      "type": "hasMany",
+      "model": "OAuthAccessToken",
+      "foreignKey": "userId"
+    },
+    "oAuthClientApplications": {
+      "type": "hasMany",
+      "model": "OAuthClientApplication",
+      "foreignKey": "userId"
+    }
+  }
+}
+
