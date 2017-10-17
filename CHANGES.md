@@ -1,3 +1,25 @@
+2017-10-17, Version 3.1.0
+=========================
+
+ * translation return for Q4 drop1 (tangyinb)
+
+ * update globalize string (Diana Lau)
+
+ * Add stalebot configuration (Kevin Delisle)
+
+ * Create Issue and PR Templates (#73) (Sakib Hasan)
+
+ * Add CODEOWNER file (Diana Lau)
+
+ * update node version in travis (Diana Lau)
+
+ * relicense under MIT and update copyright notices (Ryan Graham)
+
+ * Replicate new issue_template from loopback (Siddhi Pai)
+
+ * Replicate issue_template from loopback repo (Siddhi Pai)
+
+
 2016-12-21, Version 3.0.0
 =========================
 
