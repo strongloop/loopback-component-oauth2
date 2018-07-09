@@ -1,3 +1,13 @@
+2018-07-09, Version 3.2.0
+=========================
+
+ * update .travis.yml (Diana Lau)
+
+ * update node version (Diana Lau)
+
+ * [WebFM] cs/pl/ru translation (candytangnb)
+
+
 2017-10-17, Version 3.1.0
 =========================
 
