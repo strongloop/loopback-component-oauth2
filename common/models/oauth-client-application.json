@@ -1,6 +1,15 @@
 {
   "name": "OAuthClientApplication",
   "base": "Application",
+  "excludeBaseProperties": [
+    "callbackUrls",
+    "permissions",
+    "authenticationEnabled",
+    "anonymousAllowed",
+    "authenticationSchemes",
+    "icon",
+    "url"
+  ],
   "properties": {
     "id": {
       "type": "string",
@@ -52,15 +61,7 @@
       }
     },
     "softwareId": "string",
-    "softwareVersion": "string",
-
-    "callbackUrls": null,
-    "permissions": null,
-    "authenticationEnabled": null,
-    "anonymousAllowed": null,
-    "authenticationSchemes": null,
-    "icon": null,
-    "url": null
+    "softwareVersion": "string"
   },
   "comments": "https://tools.ietf.org/html/draft-ietf-oauth-dyn-reg-24"
 }
