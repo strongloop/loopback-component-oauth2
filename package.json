@@ -59,5 +59,6 @@
     "lint": "eslint .",
     "posttest": "npm run lint"
   },
-  "license": "MIT"
+  "license": "MIT",
+  "author": "IBM Corp."
 }
