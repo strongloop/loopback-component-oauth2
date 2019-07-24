@@ -7,15 +7,15 @@
 /* jshint camelcase: false */
 
 'use strict';
-var chai = require('chai'),
+const chai = require('chai'),
   token = require('../../lib/middleware/token'),
   Server = require('../../lib/server');
 
 describe('token', function() {
-  var server = new Server();
+  const server = new Server();
   server.exchange('authorization_code', function(req, res, next) {
     if (req.body.code == 'abc123') {
-      var json = JSON.stringify({token_type: 'bearer', access_token: 'aaa-111-ccc'});
+      const json = JSON.stringify({token_type: 'bearer', access_token: 'aaa-111-ccc'});
       return res.end(json);
     }
     return next(new Error('something went wrong while exchanging grant'));
@@ -35,7 +35,7 @@ describe('token', function() {
   });
 
   describe('handling a request for an access token', function() {
-    var response;
+    let response;
 
     before(function(done) {
       chai.connect.use(token(server))
@@ -55,7 +55,7 @@ describe('token', function() {
   });
 
   describe('handling a request for an access token with unsupported grant type', function() {
-    var err;
+    let err;
 
     before(function(done) {
       chai.connect.use(token(server))
@@ -78,7 +78,7 @@ describe('token', function() {
   });
 
   describe('encountering an error while exchanging grant', function() {
-    var err;
+    let err;
 
     before(function(done) {
       chai.connect.use(token(server))

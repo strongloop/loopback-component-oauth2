@@ -4,11 +4,11 @@
 // License text available at https://opensource.org/licenses/MIT
 
 'use strict';
-var vows = require('vows');
-var assert = require('assert');
-var util = require('util');
-var bearer = require('../../lib/passport-http-bearer');
-var BearerStrategy = require('../../lib/passport-http-bearer/strategy');
+const vows = require('vows');
+const assert = require('assert');
+const util = require('util');
+const bearer = require('../../lib/passport-http-bearer');
+const BearerStrategy = require('../../lib/passport-http-bearer/strategy');
 
 vows.describe('BearerStrategy').addBatch({
 
@@ -24,7 +24,7 @@ vows.describe('BearerStrategy').addBatch({
 
   'strategy handling a valid request with authorization header': {
     topic: function() {
-      var strategy = new BearerStrategy(function(token, scope, done) {
+      const strategy = new BearerStrategy(function(token, scope, done) {
         done(null, {token: token});
       });
       return strategy;
@@ -32,8 +32,8 @@ vows.describe('BearerStrategy').addBatch({
 
     'after augmenting with actions': {
       topic: function(strategy) {
-        var self = this;
-        var req = {};
+        const self = this;
+        const req = {};
         strategy.success = function(user) {
           self.callback(null, user);
         };
@@ -59,7 +59,7 @@ vows.describe('BearerStrategy').addBatch({
 
   'strategy handling a valid request with form-encoded body': {
     topic: function() {
-      var strategy = new BearerStrategy(function(token, scope, done) {
+      const strategy = new BearerStrategy(function(token, scope, done) {
         done(null, {token: token});
       });
       return strategy;
@@ -67,8 +67,8 @@ vows.describe('BearerStrategy').addBatch({
 
     'after augmenting with actions': {
       topic: function(strategy) {
-        var self = this;
-        var req = {};
+        const self = this;
+        const req = {};
         strategy.success = function(user) {
           self.callback(null, user);
         };
@@ -94,7 +94,7 @@ vows.describe('BearerStrategy').addBatch({
 
   'strategy handling a valid request with URI query': {
     topic: function() {
-      var strategy = new BearerStrategy(function(token, scope, done) {
+      const strategy = new BearerStrategy(function(token, scope, done) {
         done(null, {token: token});
       });
       return strategy;
@@ -102,8 +102,8 @@ vows.describe('BearerStrategy').addBatch({
 
     'after augmenting with actions': {
       topic: function(strategy) {
-        var self = this;
-        var req = {};
+        const self = this;
+        const req = {};
         strategy.success = function(user) {
           self.callback(null, user);
         };
@@ -129,7 +129,7 @@ vows.describe('BearerStrategy').addBatch({
 
   'strategy handling a valid request and passing additional info': {
     topic: function() {
-      var strategy = new BearerStrategy(function(token, scope, done) {
+      const strategy = new BearerStrategy(function(token, scope, done) {
         done(null, {token: token}, {scope: 'email'});
       });
       return strategy;
@@ -137,8 +137,8 @@ vows.describe('BearerStrategy').addBatch({
 
     'after augmenting with actions': {
       topic: function(strategy) {
-        var self = this;
-        var req = {};
+        const self = this;
+        const req = {};
         strategy.success = function(user, info) {
           self.callback(null, user, info);
         };
@@ -167,7 +167,7 @@ vows.describe('BearerStrategy').addBatch({
 
   'strategy handling a request that is not validated': {
     topic: function() {
-      var strategy = new BearerStrategy(function(token, scope, done) {
+      const strategy = new BearerStrategy(function(token, scope, done) {
         done(null, false);
       });
       return strategy;
@@ -175,8 +175,8 @@ vows.describe('BearerStrategy').addBatch({
 
     'after augmenting with actions': {
       topic: function(strategy) {
-        var self = this;
-        var req = {};
+        const self = this;
+        const req = {};
         strategy.success = function(user) {
           self.callback(new Error('should not be called'));
         };
@@ -201,7 +201,7 @@ vows.describe('BearerStrategy').addBatch({
 
   'strategy handling a request that encounters an error during verification': {
     topic: function() {
-      var strategy = new BearerStrategy(function(token, scope, done) {
+      const strategy = new BearerStrategy(function(token, scope, done) {
         done(new Error('something went wrong'));
       });
       return strategy;
@@ -209,8 +209,8 @@ vows.describe('BearerStrategy').addBatch({
 
     'after augmenting with actions': {
       topic: function(strategy) {
-        var self = this;
-        var req = {};
+        const self = this;
+        const req = {};
         strategy.success = function(user) {
           self.callback(new Error('should not be called'));
         };
@@ -239,7 +239,7 @@ vows.describe('BearerStrategy').addBatch({
 
   'strategy handling a request without authorization credentials': {
     topic: function() {
-      var strategy = new BearerStrategy(function(token, scope, done) {
+      const strategy = new BearerStrategy(function(token, scope, done) {
         done(null, {token: token});
       });
       return strategy;
@@ -247,8 +247,8 @@ vows.describe('BearerStrategy').addBatch({
 
     'after augmenting with actions': {
       topic: function(strategy) {
-        var self = this;
-        var req = {};
+        const self = this;
+        const req = {};
         strategy.success = function(user) {
           self.callback(new Error('should not be called'));
         };
@@ -271,7 +271,7 @@ vows.describe('BearerStrategy').addBatch({
 
   'strategy handling a request with non-Bearer authorization header': {
     topic: function() {
-      var strategy = new BearerStrategy(function(token, scope, done) {
+      const strategy = new BearerStrategy(function(token, scope, done) {
         done(null, {token: token});
       });
       return strategy;
@@ -279,8 +279,8 @@ vows.describe('BearerStrategy').addBatch({
 
     'after augmenting with actions': {
       topic: function(strategy) {
-        var self = this;
-        var req = {};
+        const self = this;
+        const req = {};
         strategy.success = function(user) {
           self.callback(new Error('should not be called'));
         };
@@ -305,7 +305,7 @@ vows.describe('BearerStrategy').addBatch({
 
   'strategy handling a request with malformed authorization header': {
     topic: function() {
-      var strategy = new BearerStrategy(function(token, scope, done) {
+      const strategy = new BearerStrategy(function(token, scope, done) {
         done(null, {token: token});
       });
       return strategy;
@@ -313,8 +313,8 @@ vows.describe('BearerStrategy').addBatch({
 
     'after augmenting with actions': {
       topic: function(strategy) {
-        var self = this;
-        var req = {};
+        const self = this;
+        const req = {};
         strategy.success = function(user) {
           self.callback(new Error('should not be called'));
         };
@@ -339,7 +339,7 @@ vows.describe('BearerStrategy').addBatch({
 
   'strategy handling a valid request with BEARER scheme in capitalized letters': {
     topic: function() {
-      var strategy = new BearerStrategy(function(token, scope, done) {
+      const strategy = new BearerStrategy(function(token, scope, done) {
         done(null, {token: token});
       });
       return strategy;
@@ -347,8 +347,8 @@ vows.describe('BearerStrategy').addBatch({
 
     'after augmenting with actions': {
       topic: function(strategy) {
-        var self = this;
-        var req = {};
+        const self = this;
+        const req = {};
         strategy.success = function(user) {
           self.callback(null, user);
         };
@@ -374,7 +374,7 @@ vows.describe('BearerStrategy').addBatch({
 
   'strategy handling a request without authorization credentials and realm option set': {
     topic: function() {
-      var strategy = new BearerStrategy({realm: 'Administrators'},
+      const strategy = new BearerStrategy({realm: 'Administrators'},
         function(token, scope, done) {
           done(null, {token: token});
         });
@@ -383,8 +383,8 @@ vows.describe('BearerStrategy').addBatch({
 
     'after augmenting with actions': {
       topic: function(strategy) {
-        var self = this;
-        var req = {};
+        const self = this;
+        const req = {};
         strategy.success = function(user) {
           self.callback(new Error('should not be called'));
         };
@@ -407,7 +407,7 @@ vows.describe('BearerStrategy').addBatch({
 
   'strategy handling a request without authorization credentials and scope option set': {
     topic: function() {
-      var strategy = new BearerStrategy({scope: 'email'},
+      const strategy = new BearerStrategy({scope: 'email'},
         function(token, scope, done) {
           done(null, {token: token});
         });
@@ -416,8 +416,8 @@ vows.describe('BearerStrategy').addBatch({
 
     'after augmenting with actions': {
       topic: function(strategy) {
-        var self = this;
-        var req = {};
+        const self = this;
+        const req = {};
         strategy.success = function(user) {
           self.callback(new Error('should not be called'));
         };
@@ -440,7 +440,7 @@ vows.describe('BearerStrategy').addBatch({
 
   'strategy handling a request without authorization credentials and multiple scope options set': {
     topic: function() {
-      var strategy = new BearerStrategy({scope: ['email', 'feed']},
+      const strategy = new BearerStrategy({scope: ['email', 'feed']},
         function(token, scope, done) {
           done(null, {token: token});
         });
@@ -449,8 +449,8 @@ vows.describe('BearerStrategy').addBatch({
 
     'after augmenting with actions': {
       topic: function(strategy) {
-        var self = this;
-        var req = {};
+        const self = this;
+        const req = {};
         strategy.success = function(user) {
           self.callback(new Error('should not be called'));
         };
@@ -479,11 +479,11 @@ vows.describe('BearerStrategy').addBatch({
 
   'strategy getting token via multiple methods': {
     topic: function() {
-      var strategy = new BearerStrategy({scope: ['email', 'feed']}, function(token, scope, done) {
+      const strategy = new BearerStrategy({scope: ['email', 'feed']}, function(token, scope, done) {
         assert.ok(false);
       });
-      var self = this;
-      var req = {};
+      const self = this;
+      const req = {};
       req.headers = {};
       req.headers.authorization = 'BEARER vF9dft4qmT';
       req.query = {};

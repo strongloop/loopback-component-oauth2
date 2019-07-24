@@ -7,12 +7,12 @@
 /* jshint camelcase: false, expr: true, sub: true */
 
 'use strict';
-var chai = require('chai'),
+const chai = require('chai'),
   authorization = require('../../lib/middleware/authorization'),
   Server = require('../../lib/server');
 
 describe('authorization', function() {
-  var server = new Server();
+  const server = new Server();
   server.serializeClient(function(client, done) {
     return done(null, client.id);
   });
@@ -58,7 +58,7 @@ describe('authorization', function() {
   }
 
   describe('handling a request that is immediately authorized', function() {
-    var request, response, err;
+    let request, response, err;
 
     before(function(done) {
       chai.connect.use('express', authorization(server, validate, immediate))
@@ -93,7 +93,7 @@ describe('authorization', function() {
   });
 
   describe('handling a request that is not immediately authorized', function() {
-    var request, err;
+    let request, err;
 
     before(function(done) {
       chai.connect.use(authorization(server, validate, immediate))
@@ -119,7 +119,7 @@ describe('authorization', function() {
     });
 
     it('should store transaction in session', function() {
-      var tid = request.oauth2.transactionID;
+      const tid = request.oauth2.transactionID;
       expect(request.session['authorize'][tid]).to.be.an('object');
       expect(request.session['authorize'][tid].protocol).to.equal('oauth2');
       expect(request.session['authorize'][tid].client).to.equal('2234');
@@ -131,7 +131,7 @@ describe('authorization', function() {
   });
 
   describe('handling a request that encounters an error while checking immediate status', function() {
-    var request, err;
+    let request, err;
 
     before(function(done) {
       chai.connect.use(authorization(server, validate, immediate))
@@ -163,7 +163,7 @@ describe('authorization', function() {
   });
 
   describe('handling a request that throws an error while checking immediate status', function() {
-    var request, err;
+    let request, err;
 
     before(function(done) {
       chai.connect.use(authorization(server, validate, immediate))
@@ -195,7 +195,7 @@ describe('authorization', function() {
   });
 
   describe('handling a request that is immediately authorized but encounters an error while responding', function() {
-    var request, err;
+    let request, err;
 
     before(function(done) {
       chai.connect.use(authorization(server, validate, immediate))
@@ -227,7 +227,7 @@ describe('authorization', function() {
   });
 
   describe('handling a request that is immediately authorized but unable to respond', function() {
-    var request, err;
+    let request, err;
 
     before(function(done) {
       chai.connect.use(authorization(server, validate, immediate))
@@ -267,7 +267,7 @@ describe('authorization', function() {
     }
 
     describe('handling a request that is immediately authorized', function() {
-      var request, response, err;
+      let request, response, err;
 
       before(function(done) {
         chai.connect.use('express', authorization(server, validate, immediate))

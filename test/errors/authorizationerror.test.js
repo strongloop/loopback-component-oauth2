@@ -4,12 +4,13 @@
 // License text available at https://opensource.org/licenses/MIT
 
 'use strict';
-var OAuth2Error = require('../../lib/errors/oauth2error'),
+const expect = require('chai').expect;
+const OAuth2Error = require('../../lib/errors/oauth2error'),
   AuthorizationError = require('../../lib/errors/authorizationerror');
 
 describe('AuthorizationError', function() {
   describe('constructed without a message', function() {
-    var err = new AuthorizationError();
+    const err = new AuthorizationError();
 
     it('should have default properties', function() {
       expect(err.message).to.be.undefined;
@@ -19,7 +20,7 @@ describe('AuthorizationError', function() {
     });
 
     it('should format correctly', function() {
-      //expect(err.toString()).to.equal('AuthorizationError');
+      // expect(err.toString()).to.equal('AuthorizationError');
       expect(err.toString().indexOf('AuthorizationError')).to.equal(0);
     });
 
@@ -30,7 +31,7 @@ describe('AuthorizationError', function() {
   });
 
   describe('constructed with a message', function() {
-    var err = new AuthorizationError('Invalid return URI');
+    const err = new AuthorizationError('Invalid return URI');
 
     it('should have default properties', function() {
       expect(err.message).to.equal('Invalid return URI');
@@ -45,7 +46,7 @@ describe('AuthorizationError', function() {
   });
 
   describe('constructed with a message and invalid_request code', function() {
-    var err = new AuthorizationError('Invalid request', 'invalid_request');
+    const err = new AuthorizationError('Invalid request', 'invalid_request');
 
     it('should have default properties', function() {
       expect(err.message).to.equal('Invalid request');
@@ -56,7 +57,7 @@ describe('AuthorizationError', function() {
   });
 
   describe('constructed with a message and unauthorized_client code', function() {
-    var err = new AuthorizationError('Unauthorized client', 'unauthorized_client');
+    const err = new AuthorizationError('Unauthorized client', 'unauthorized_client');
 
     it('should have default properties', function() {
       expect(err.message).to.equal('Unauthorized client');
@@ -67,7 +68,7 @@ describe('AuthorizationError', function() {
   });
 
   describe('constructed with a message and access_denied code', function() {
-    var err = new AuthorizationError('Access denied', 'access_denied');
+    const err = new AuthorizationError('Access denied', 'access_denied');
 
     it('should have default properties', function() {
       expect(err.message).to.equal('Access denied');
@@ -78,7 +79,7 @@ describe('AuthorizationError', function() {
   });
 
   describe('constructed with a message and unsupported_response_type code', function() {
-    var err = new AuthorizationError('Unsupported response type', 'unsupported_response_type');
+    const err = new AuthorizationError('Unsupported response type', 'unsupported_response_type');
 
     it('should have default properties', function() {
       expect(err.message).to.equal('Unsupported response type');
@@ -89,7 +90,7 @@ describe('AuthorizationError', function() {
   });
 
   describe('constructed with a message and invalid_scope code', function() {
-    var err = new AuthorizationError('Invalid scope', 'invalid_scope');
+    const err = new AuthorizationError('Invalid scope', 'invalid_scope');
 
     it('should have default properties', function() {
       expect(err.message).to.equal('Invalid scope');
@@ -100,7 +101,7 @@ describe('AuthorizationError', function() {
   });
 
   describe('constructed with a message and temporarily_unavailable code', function() {
-    var err = new AuthorizationError('Temporarily unavailable', 'temporarily_unavailable');
+    const err = new AuthorizationError('Temporarily unavailable', 'temporarily_unavailable');
 
     it('should have default properties', function() {
       expect(err.message).to.equal('Temporarily unavailable');
@@ -111,7 +112,7 @@ describe('AuthorizationError', function() {
   });
 
   describe('constructed with a message, code, uri and status', function() {
-    var err = new AuthorizationError('Payment required', 'payment_required', 'http://www.example.com/oauth/help', 402);
+    const err = new AuthorizationError('Payment required', 'payment_required', 'http://www.example.com/oauth/help', 402);
 
     it('should have default properties', function() {
       expect(err.message).to.equal('Payment required');

@@ -4,22 +4,23 @@
 // License text available at https://opensource.org/licenses/MIT
 
 'use strict';
-var Server = require('../lib/server');
+const Server = require('../lib/server');
+const expect = require('chai').expect;
 
 describe('Server', function() {
   describe('handling authorization response with one supported type', function() {
-    var server = new Server();
+    const server = new Server();
     server.grant('foo', 'response', function(txn, res, next) {
       if (txn.req.scope != 'read') { return next(new Error('something is wrong')); }
       res.end('abc');
     });
 
     describe('response to supported type', function() {
-      var result, err;
+      let result, err;
 
       before(function(done) {
-        var txn = {req: {type: 'foo', scope: 'read'}};
-        var res = {};
+        const txn = {req: {type: 'foo', scope: 'read'}};
+        const res = {};
         res.end = function(data) {
           result = data;
           done();
@@ -40,11 +41,11 @@ describe('Server', function() {
     });
 
     describe('response to unsupported type', function() {
-      var result, err;
+      let result, err;
 
       before(function(done) {
-        var txn = {req: {type: 'unsupported'}};
-        var res = {};
+        const txn = {req: {type: 'unsupported'}};
+        const res = {};
         res.end = function(data) {
           done(new Error('should not be called'));
         };
@@ -62,17 +63,17 @@ describe('Server', function() {
   });
 
   describe('handling authorization response with one wildcard responder', function() {
-    var server = new Server();
+    const server = new Server();
     server.grant('*', 'response', function(txn, res, next) {
       res.end('abc');
     });
 
     describe('response to a type', function() {
-      var result, err;
+      let result, err;
 
       before(function(done) {
-        var txn = {req: {type: 'foo', scope: 'read'}};
-        var res = {};
+        const txn = {req: {type: 'foo', scope: 'read'}};
+        const res = {};
         res.end = function(data) {
           result = data;
           done();
@@ -94,7 +95,7 @@ describe('Server', function() {
   });
 
   describe('handling authorization response with one wildcard responder and one supported type', function() {
-    var server = new Server();
+    const server = new Server();
     server.grant('*', 'response', function(txn, res, next) {
       res.star = true;
       next();
@@ -105,11 +106,11 @@ describe('Server', function() {
     });
 
     describe('response to a type', function() {
-      var response, result, err;
+      let response, result, err;
 
       before(function(done) {
-        var txn = {req: {type: 'foo', scope: 'read'}};
-        var res = {};
+        const txn = {req: {type: 'foo', scope: 'read'}};
+        const res = {};
         res.end = function(data) {
           result = data;
           done();
@@ -132,17 +133,17 @@ describe('Server', function() {
   });
 
   describe('handling authorization response with responder that encounters an error', function() {
-    var server = new Server();
+    const server = new Server();
     server.grant('foo', 'response', function(txn, res, next) {
       next(new Error('something went wrong'));
     });
 
     describe('response to a type', function() {
-      var result, err;
+      let result, err;
 
       before(function(done) {
-        var txn = {req: {type: 'foo', scope: 'read'}};
-        var res = {};
+        const txn = {req: {type: 'foo', scope: 'read'}};
+        const res = {};
         res.end = function(data) {
           done(new Error('should not be called'));
         };
@@ -161,17 +162,17 @@ describe('Server', function() {
   });
 
   describe('handling authorization response with responder that throws an exception', function() {
-    var server = new Server();
+    const server = new Server();
     server.grant('foo', 'response', function(txn, res, next) {
       throw new Error('something was thrown');
     });
 
     describe('response to a type', function() {
-      var result, err;
+      let result, err;
 
       before(function(done) {
-        var txn = {req: {type: 'foo', scope: 'read'}};
-        var res = {};
+        const txn = {req: {type: 'foo', scope: 'read'}};
+        const res = {};
         res.end = function(data) {
           done(new Error('should not be called'));
         };
@@ -190,14 +191,14 @@ describe('Server', function() {
   });
 
   describe('handling authorization response with no supported types', function() {
-    var server = new Server();
+    const server = new Server();
 
     describe('response', function() {
-      var err;
+      let err;
 
       before(function(done) {
-        var txn = {req: {type: 'foo', scope: 'read'}};
-        var res = {};
+        const txn = {req: {type: 'foo', scope: 'read'}};
+        const res = {};
 
         server._respond(txn, res, function(e) {
           err = e;

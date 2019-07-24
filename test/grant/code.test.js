@@ -7,12 +7,12 @@
 /* jshint camelcase: false, expr: true */
 
 'use strict';
-var chai = require('chai'),
+const chai = require('chai'),
   code = require('../../lib/grant/code');
 
 describe('grant.code', function() {
   describe('module', function() {
-    var mod = code(function() {});
+    const mod = code(function() {});
 
     it('should be named code', function() {
       expect(mod.name).to.equal('code');
@@ -34,7 +34,7 @@ describe('grant.code', function() {
     function issue() {}
 
     describe('request', function() {
-      var err, out;
+      let err, out;
 
       before(function(done) {
         chai.oauth2orize.grant(code(issue))
@@ -65,7 +65,7 @@ describe('grant.code', function() {
     });
 
     describe('request with scope', function() {
-      var err, out;
+      let err, out;
 
       before(function(done) {
         chai.oauth2orize.grant(code(issue))
@@ -99,7 +99,7 @@ describe('grant.code', function() {
     });
 
     describe('request with list of scopes', function() {
-      var err, out;
+      let err, out;
 
       before(function(done) {
         chai.oauth2orize.grant(code(issue))
@@ -134,7 +134,7 @@ describe('grant.code', function() {
     });
 
     describe('request with list of scopes using scope separator option', function() {
-      var err, out;
+      let err, out;
 
       before(function(done) {
         chai.oauth2orize.grant(code({scopeSeparator: ','}, issue))
@@ -169,7 +169,7 @@ describe('grant.code', function() {
     });
 
     describe('request with list of scopes separated by space using multiple scope separator option', function() {
-      var err, out;
+      let err, out;
 
       before(function(done) {
         chai.oauth2orize.grant(code({scopeSeparator: [' ', ',']}, issue))
@@ -204,7 +204,7 @@ describe('grant.code', function() {
     });
 
     describe('request with list of scopes separated by comma using multiple scope separator option', function() {
-      var err, out;
+      let err, out;
 
       before(function(done) {
         chai.oauth2orize.grant(code({scopeSeparator: [' ', ',']}, issue))
@@ -239,7 +239,7 @@ describe('grant.code', function() {
     });
 
     describe('request with missing client_id parameter', function() {
-      var err, out;
+      let err, out;
 
       before(function(done) {
         chai.oauth2orize.grant(code(issue))
@@ -278,7 +278,7 @@ describe('grant.code', function() {
     }
 
     describe('transaction', function() {
-      var response;
+      let response;
 
       before(function(done) {
         chai.oauth2orize.grant(code(issue))
@@ -305,7 +305,7 @@ describe('grant.code', function() {
     });
 
     describe('transaction with request state', function() {
-      var response;
+      let response;
 
       before(function(done) {
         chai.oauth2orize.grant(code(issue))
@@ -333,7 +333,7 @@ describe('grant.code', function() {
     });
 
     describe('disallowed transaction', function() {
-      var response;
+      let response;
 
       before(function(done) {
         chai.oauth2orize.grant(code(issue))
@@ -360,7 +360,7 @@ describe('grant.code', function() {
     });
 
     describe('disallowed transaction with request state', function() {
-      var response;
+      let response;
 
       before(function(done) {
         chai.oauth2orize.grant(code(issue))
@@ -388,7 +388,7 @@ describe('grant.code', function() {
     });
 
     describe('unauthorized client', function() {
-      var err;
+      let err;
 
       before(function(done) {
         chai.oauth2orize.grant(code(issue))
@@ -418,7 +418,7 @@ describe('grant.code', function() {
     });
 
     describe('encountering an error while issuing code', function() {
-      var err;
+      let err;
 
       before(function(done) {
         chai.oauth2orize.grant(code(issue))
@@ -445,7 +445,7 @@ describe('grant.code', function() {
     });
 
     describe('throwing an error while issuing code', function() {
-      var err;
+      let err;
 
       before(function(done) {
         chai.oauth2orize.grant(code(issue))
@@ -472,7 +472,7 @@ describe('grant.code', function() {
     });
 
     describe('transaction without redirect URL', function() {
-      var err;
+      let err;
 
       before(function(done) {
         chai.oauth2orize.grant(code(issue))
@@ -507,7 +507,7 @@ describe('grant.code', function() {
     }
 
     describe('transaction with response scope', function() {
-      var response;
+      let response;
 
       before(function(done) {
         chai.oauth2orize.grant(code(issue))

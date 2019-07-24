@@ -4,18 +4,19 @@
 // License text available at https://opensource.org/licenses/MIT
 
 'use strict';
-var ForbiddenError = require('../../lib/errors/forbiddenerror');
+const ForbiddenError = require('../../lib/errors/forbiddenerror');
+const expect = require('chai').expect;
 
 describe('ForbiddenError', function() {
   describe('constructed without a message', function() {
-    var err = new ForbiddenError();
+    const err = new ForbiddenError();
 
     it('should have default properties', function() {
       expect(err.message).to.be.undefined;
     });
 
     it('should format correctly', function() {
-      //expect(err.toString()).to.equal('ForbiddenError');
+      // expect(err.toString()).to.equal('ForbiddenError');
       expect(err.toString().indexOf('ForbiddenError')).to.equal(0);
     });
 
@@ -29,7 +30,7 @@ describe('ForbiddenError', function() {
   });
 
   describe('constructed with a message', function() {
-    var err = new ForbiddenError('Forbidden');
+    const err = new ForbiddenError('Forbidden');
 
     it('should have default properties', function() {
       expect(err.message).to.equal('Forbidden');

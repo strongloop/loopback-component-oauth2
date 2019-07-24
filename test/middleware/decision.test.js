@@ -7,12 +7,12 @@
 /* jshint expr: true, sub: true */
 
 'use strict';
-var chai = require('chai'),
+const chai = require('chai'),
   decision = require('../../lib/middleware/decision'),
   Server = require('../../lib/server');
 
 describe('decision', function() {
-  var server = new Server();
+  const server = new Server();
   server.grant('code', 'response', function(txn, res, next) {
     if (txn.res.allow === false) { return res.redirect(txn.redirectURI + '?error=access_denied'); }
     if (txn.transactionID == 'abc123') { return res.redirect(txn.redirectURI + '?code=a1b1c1'); }
@@ -30,7 +30,7 @@ describe('decision', function() {
   });
 
   describe('handling a user decision to allow access', function() {
-    var request, response;
+    let request, response;
 
     before(function(done) {
       chai.connect.use('express', decision(server))
@@ -77,7 +77,7 @@ describe('decision', function() {
   });
 
   describe('handling a user decision to deny access', function() {
-    var request, response;
+    let request, response;
 
     before(function(done) {
       chai.connect.use('express', decision(server))
@@ -124,7 +124,7 @@ describe('decision', function() {
   });
 
   describe('handling a user decision to allow access using unknown response type', function() {
-    var request, response, err;
+    let request, response, err;
 
     before(function(done) {
       chai.connect.use(decision(server))
@@ -182,7 +182,7 @@ describe('decision', function() {
   });
 
   describe('encountering an error while responding with grant', function() {
-    var request, response, err;
+    let request, response, err;
 
     before(function(done) {
       chai.connect.use(decision(server))
@@ -238,7 +238,7 @@ describe('decision', function() {
   });
 
   describe('handling a request without a session', function() {
-    var request, err;
+    let request, err;
 
     before(function(done) {
       chai.connect.use(decision(server))
@@ -263,7 +263,8 @@ describe('decision', function() {
     it('should error', function() {
       expect(err).to.be.an.instanceOf(Error);
       expect(err.message).to.equal(
-        'OAuth2orize requires session support. Did you forget app.use(express.session(...))?');
+        'OAuth2orize requires session support. Did you forget app.use(express.session(...))?'
+      );
     });
 
     it('should not set user on transaction', function() {
@@ -276,7 +277,7 @@ describe('decision', function() {
   });
 
   describe('handling a request without a body', function() {
-    var request, err;
+    let request, err;
 
     before(function(done) {
       chai.connect.use(decision(server))
@@ -319,7 +320,7 @@ describe('decision', function() {
   });
 
   describe('handling a request without a transaction', function() {
-    var request, err;
+    let request, err;
 
     before(function(done) {
       chai.connect.use(decision(server))
@@ -342,7 +343,8 @@ describe('decision', function() {
     it('should error', function() {
       expect(err).to.be.an.instanceOf(Error);
       expect(err.message).to.equal(
-        'OAuth2orize requires transaction support. Did you forget oauth2orize.transactionLoader(...)?');
+        'OAuth2orize requires transaction support. Did you forget oauth2orize.transactionLoader(...)?'
+      );
     });
 
     it('should leave transaction in session', function() {
@@ -351,7 +353,7 @@ describe('decision', function() {
   });
 
   describe('handling a request without transactions in session', function() {
-    var request, err;
+    let request, err;
 
     before(function(done) {
       chai.connect.use(decision(server))
@@ -390,12 +392,12 @@ describe('decision', function() {
   });
 
   describe('with parsing function', function() {
-    var mw = decision(server, function(req, done) {
+    const mw = decision(server, function(req, done) {
       done(null, {scope: req.query.scope});
     });
 
     describe('handling a user decision', function() {
-      var request, response;
+      let request, response;
 
       before(function(done) {
         chai.connect.use('express', mw)
@@ -445,12 +447,12 @@ describe('decision', function() {
   });
 
   describe('with parsing function that denies access', function() {
-    var mw = decision(server, function(req, done) {
+    const mw = decision(server, function(req, done) {
       done(null, {allow: false});
     });
 
     describe('handling a user decision', function() {
-      var request, response;
+      let request, response;
 
       before(function(done) {
         chai.connect.use('express', mw)
@@ -499,12 +501,12 @@ describe('decision', function() {
   });
 
   describe('with parsing function that errors', function() {
-    var mw = decision(server, function(req, done) {
+    const mw = decision(server, function(req, done) {
       done(new Error('something went wrong'));
     });
 
     describe('handling a user decision', function() {
-      var request, err;
+      let request, err;
 
       before(function(done) {
         chai.connect.use(mw)
@@ -549,10 +551,10 @@ describe('decision', function() {
   });
 
   describe('with cancel field option', function() {
-    var mw = decision(server, {cancelField: 'deny'});
+    const mw = decision(server, {cancelField: 'deny'});
 
     describe('handling a user decision to deny access', function() {
-      var request, response;
+      let request, response;
 
       before(function(done) {
         chai.connect.use('express', mw)
@@ -600,10 +602,10 @@ describe('decision', function() {
   });
 
   describe('with session key option', function() {
-    var mw = decision(server, {sessionKey: 'oauth2orize'});
+    const mw = decision(server, {sessionKey: 'oauth2orize'});
 
     describe('handling a user decision to allow access', function() {
-      var request, response;
+      let request, response;
 
       before(function(done) {
         chai.connect.use('express', mw)
@@ -651,10 +653,10 @@ describe('decision', function() {
   });
 
   describe('with user property option', function() {
-    var mw = decision(server, {userProperty: 'other'});
+    const mw = decision(server, {userProperty: 'other'});
 
     describe('handling a user decision to allow access', function() {
-      var request, response;
+      let request, response;
 
       before(function(done) {
         chai.connect.use('express', mw)

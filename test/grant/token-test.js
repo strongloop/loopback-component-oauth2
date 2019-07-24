@@ -4,10 +4,10 @@
 // License text available at https://opensource.org/licenses/MIT
 
 'use strict';
-var vows = require('vows');
-var assert = require('assert');
-var util = require('util');
-var token = require('grant/token');
+const vows = require('vows');
+const assert = require('assert');
+const util = require('util');
+const token = require('grant/token');
 
 function MockRequest() {
 }
@@ -54,8 +54,8 @@ vows.describe('code').addBatch({
 
     'when handling a request': {
       topic: function(token) {
-        var self = this;
-        var req = new MockRequest();
+        const self = this;
+        const req = new MockRequest();
         req.query = {client_id: 'c123',
           redirect_uri: 'http://example.com/auth/callback',
           state: 'f1o1o1',
@@ -63,7 +63,7 @@ vows.describe('code').addBatch({
 
         process.nextTick(function() {
           try {
-            var obj = token.request(req);
+            const obj = token.request(req);
             self.callback(null, obj);
           } catch (e) {
             self.callback(e);
@@ -90,8 +90,8 @@ vows.describe('code').addBatch({
 
     'when handling a request': {
       topic: function(token) {
-        var self = this;
-        var req = new MockRequest();
+        const self = this;
+        const req = new MockRequest();
         req.query = {client_id: 'c123',
           redirect_uri: 'http://example.com/auth/callback',
           state: 'f1o1o1',
@@ -100,7 +100,7 @@ vows.describe('code').addBatch({
 
         process.nextTick(function() {
           try {
-            var obj = token.request(req);
+            const obj = token.request(req);
             self.callback(null, obj);
           } catch (e) {
             self.callback(e);
@@ -129,8 +129,8 @@ vows.describe('code').addBatch({
 
     'when handling a request': {
       topic: function(token) {
-        var self = this;
-        var req = new MockRequest();
+        const self = this;
+        const req = new MockRequest();
         req.query = {client_id: 'c123',
           redirect_uri: 'http://example.com/auth/callback',
           state: 'f1o1o1',
@@ -139,7 +139,7 @@ vows.describe('code').addBatch({
 
         process.nextTick(function() {
           try {
-            var obj = token.request(req);
+            const obj = token.request(req);
             self.callback(null, obj);
           } catch (e) {
             self.callback(e);
@@ -169,8 +169,8 @@ vows.describe('code').addBatch({
 
     'when handling a request': {
       topic: function(token) {
-        var self = this;
-        var req = new MockRequest();
+        const self = this;
+        const req = new MockRequest();
         req.query = {client_id: 'c123',
           redirect_uri: 'http://example.com/auth/callback',
           state: 'f1o1o1',
@@ -179,7 +179,7 @@ vows.describe('code').addBatch({
 
         process.nextTick(function() {
           try {
-            var obj = token.request(req);
+            const obj = token.request(req);
             self.callback(null, obj);
           } catch (e) {
             self.callback(e);
@@ -209,8 +209,8 @@ vows.describe('code').addBatch({
 
     'when handling a request with space scope separator': {
       topic: function(token) {
-        var self = this;
-        var req = new MockRequest();
+        const self = this;
+        const req = new MockRequest();
         req.query = {client_id: 'c123',
           redirect_uri: 'http://example.com/auth/callback',
           state: 'f1o1o1',
@@ -219,7 +219,7 @@ vows.describe('code').addBatch({
 
         process.nextTick(function() {
           try {
-            var obj = token.request(req);
+            const obj = token.request(req);
             self.callback(null, obj);
           } catch (e) {
             self.callback(e);
@@ -243,8 +243,8 @@ vows.describe('code').addBatch({
 
     'when handling a request with comma scope separator': {
       topic: function(token) {
-        var self = this;
-        var req = new MockRequest();
+        const self = this;
+        const req = new MockRequest();
         req.query = {client_id: 'c123',
           redirect_uri: 'http://example.com/auth/callback',
           state: 'f1o1o1',
@@ -253,7 +253,7 @@ vows.describe('code').addBatch({
 
         process.nextTick(function() {
           try {
-            var obj = token.request(req);
+            const obj = token.request(req);
             self.callback(null, obj);
           } catch (e) {
             self.callback(e);
@@ -283,15 +283,15 @@ vows.describe('code').addBatch({
 
     'when handling a request': {
       topic: function(code) {
-        var self = this;
-        var req = new MockRequest();
+        const self = this;
+        const req = new MockRequest();
         req.query = {redirect_uri: 'http://example.com/auth/callback',
           state: 'f1o1o1',
         };
 
         process.nextTick(function() {
           try {
-            var obj = code.request(req);
+            const obj = code.request(req);
             self.callback(null, obj);
           } catch (e) {
             self.callback(e);
@@ -321,14 +321,14 @@ vows.describe('code').addBatch({
 
     'when handling a request': {
       topic: function(code) {
-        var self = this;
-        var req = new MockRequest();
-        var res = new MockResponse();
+        const self = this;
+        const req = new MockRequest();
+        const res = new MockResponse();
         res.done = function() {
           self.callback(null, req, res);
         };
 
-        var txn = {};
+        const txn = {};
         txn.client = {id: 'c123', name: 'Example'};
         txn.redirectURI = 'http://example.com/auth/callback';
         txn.req = {
@@ -367,14 +367,14 @@ vows.describe('code').addBatch({
 
     'when handling a request': {
       topic: function(code) {
-        var self = this;
-        var req = new MockRequest();
-        var res = new MockResponse();
+        const self = this;
+        const req = new MockRequest();
+        const res = new MockResponse();
         res.done = function() {
           self.callback(null, req, res);
         };
 
-        var txn = {};
+        const txn = {};
         txn.client = {id: 'c123', name: 'Example'};
         txn.redirectURI = 'http://example.com/auth/callback';
         txn.req = {
@@ -414,14 +414,14 @@ vows.describe('code').addBatch({
 
     'when handling a request': {
       topic: function(code) {
-        var self = this;
-        var req = new MockRequest();
-        var res = new MockResponse();
+        const self = this;
+        const req = new MockRequest();
+        const res = new MockResponse();
         res.done = function() {
           self.callback(null, req, res);
         };
 
-        var txn = {};
+        const txn = {};
         txn.client = {id: 'c123', name: 'Example'};
         txn.redirectURI = 'http://example.com/auth/callback';
         txn.req = {
@@ -456,14 +456,14 @@ vows.describe('code').addBatch({
 
     'when handling a request': {
       topic: function(code) {
-        var self = this;
-        var req = new MockRequest();
-        var res = new MockResponse();
+        const self = this;
+        const req = new MockRequest();
+        const res = new MockResponse();
         res.done = function() {
           self.callback(null, req, res);
         };
 
-        var txn = {};
+        const txn = {};
         txn.client = {id: 'c123', name: 'Example'};
         txn.redirectURI = 'http://example.com/auth/callback';
         txn.req = {
@@ -498,14 +498,14 @@ vows.describe('code').addBatch({
 
     'when handling a request': {
       topic: function(code) {
-        var self = this;
-        var req = new MockRequest();
-        var res = new MockResponse();
+        const self = this;
+        const req = new MockRequest();
+        const res = new MockResponse();
         res.done = function() {
           self.callback(null, req, res);
         };
 
-        var txn = {};
+        const txn = {};
         txn.client = {id: 'c123', name: 'Example'};
         txn.redirectURI = 'http://example.com/auth/callback';
         txn.req = {
@@ -540,14 +540,14 @@ vows.describe('code').addBatch({
 
     'when handling a request': {
       topic: function(code) {
-        var self = this;
-        var req = new MockRequest();
-        var res = new MockResponse();
+        const self = this;
+        const req = new MockRequest();
+        const res = new MockResponse();
         res.done = function() {
           self.callback(null, req, res);
         };
 
-        var txn = {};
+        const txn = {};
         txn.client = {id: 'c123', name: 'Example'};
         txn.redirectURI = 'http://example.com/auth/callback';
         txn.req = {
@@ -582,14 +582,14 @@ vows.describe('code').addBatch({
 
     'when handling a request': {
       topic: function(code) {
-        var self = this;
-        var req = new MockRequest();
-        var res = new MockResponse();
+        const self = this;
+        const req = new MockRequest();
+        const res = new MockResponse();
         res.done = function() {
           self.callback(null, req, res);
         };
 
-        var txn = {};
+        const txn = {};
         txn.client = {id: 'c123', name: 'Example'};
         txn.redirectURI = 'http://example.com/auth/callback';
         txn.req = {
@@ -625,14 +625,14 @@ vows.describe('code').addBatch({
 
     'when handling a request': {
       topic: function(code) {
-        var self = this;
-        var req = new MockRequest();
-        var res = new MockResponse();
+        const self = this;
+        const req = new MockRequest();
+        const res = new MockResponse();
         res.done = function() {
           self.callback(new Error('should not be called'));
         };
 
-        var txn = {};
+        const txn = {};
         txn.client = {id: 'c123', name: 'Example'};
         txn.redirectURI = 'http://example.com/auth/callback';
         txn.req = {
@@ -673,14 +673,14 @@ vows.describe('code').addBatch({
 
     'when handling a request': {
       topic: function(code) {
-        var self = this;
-        var req = new MockRequest();
-        var res = new MockResponse();
+        const self = this;
+        const req = new MockRequest();
+        const res = new MockResponse();
         res.done = function() {
           self.callback(new Error('should not be called'));
         };
 
-        var txn = {};
+        const txn = {};
         txn.client = {id: 'c123', name: 'Example'};
         txn.redirectURI = 'http://example.com/auth/callback';
         txn.req = {
@@ -718,14 +718,14 @@ vows.describe('code').addBatch({
 
     'when handling a request': {
       topic: function(code) {
-        var self = this;
-        var req = new MockRequest();
-        var res = new MockResponse();
+        const self = this;
+        const req = new MockRequest();
+        const res = new MockResponse();
         res.done = function() {
           self.callback(new Error('should not be called'));
         };
 
-        var txn = {};
+        const txn = {};
         txn.client = {id: 'c123', name: 'Example'};
         txn.req = {
           redirectURI: 'http://example.com/auth/callback',

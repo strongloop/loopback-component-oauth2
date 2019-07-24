@@ -4,18 +4,19 @@
 // License text available at https://opensource.org/licenses/MIT
 
 'use strict';
-var Server = require('../lib/server');
+const Server = require('../lib/server');
+const expect = require('chai').expect;
 
 describe('Server', function() {
   describe('with no exchanges', function() {
-    var server = new Server();
+    const server = new Server();
 
     describe('handling a request', function() {
-      var err;
+      let err;
 
       before(function(done) {
-        var req = {};
-        var res = {};
+        const req = {};
+        const res = {};
 
         server._exchange(undefined, req, res, function(e) {
           err = e;
@@ -30,7 +31,7 @@ describe('Server', function() {
   });
 
   describe('with one exchange registered using a named function', function() {
-    var server = new Server();
+    const server = new Server();
     server.exchange(code);
     function code(req, res, next) {
       if (req.code != '123') { return next(new Error('something is wrong')); }
@@ -38,11 +39,11 @@ describe('Server', function() {
     }
 
     describe('handling a request with supported type', function() {
-      var result, err;
+      let result, err;
 
       before(function(done) {
-        var req = {code: '123'};
-        var res = {};
+        const req = {code: '123'};
+        const res = {};
         res.end = function(data) {
           result = data;
           done();
@@ -63,11 +64,11 @@ describe('Server', function() {
     });
 
     describe('handling a request with unsupported type', function() {
-      var result, err;
+      let result, err;
 
       before(function(done) {
-        var req = {};
-        var res = {};
+        const req = {};
+        const res = {};
         res.end = function(data) {
           done(new Error('should not be called'));
         };
@@ -84,11 +85,11 @@ describe('Server', function() {
     });
 
     describe('handling a request with undefined type', function() {
-      var result, err;
+      let result, err;
 
       before(function(done) {
-        var req = {};
-        var res = {};
+        const req = {};
+        const res = {};
         res.end = function(data) {
           done(new Error('should not be called'));
         };
@@ -106,18 +107,18 @@ describe('Server', function() {
   });
 
   describe('with a wildcard exchange registered with null', function() {
-    var server = new Server();
+    const server = new Server();
     server.exchange(null, function(req, res, next) {
       if (req.code != '123') { return next(new Error('something is wrong')); }
       res.end('abc');
     });
 
     describe('handling a request with type', function() {
-      var result, err;
+      let result, err;
 
       before(function(done) {
-        var req = {code: '123'};
-        var res = {};
+        const req = {code: '123'};
+        const res = {};
         res.end = function(data) {
           result = data;
           done();
@@ -138,11 +139,11 @@ describe('Server', function() {
     });
 
     describe('handling a request without type', function() {
-      var result, err;
+      let result, err;
 
       before(function(done) {
-        var req = {code: '123'};
-        var res = {};
+        const req = {code: '123'};
+        const res = {};
         res.end = function(data) {
           result = data;
           done();
@@ -164,18 +165,18 @@ describe('Server', function() {
   });
 
   describe('with a wildcard exchange registered with star', function() {
-    var server = new Server();
+    const server = new Server();
     server.exchange('*', function(req, res, next) {
       if (req.code != '123') { return next(new Error('something is wrong')); }
       res.end('abc');
     });
 
     describe('handling a request with type', function() {
-      var result, err;
+      let result, err;
 
       before(function(done) {
-        var req = {code: '123'};
-        var res = {};
+        const req = {code: '123'};
+        const res = {};
         res.end = function(data) {
           result = data;
           done();
@@ -196,11 +197,11 @@ describe('Server', function() {
     });
 
     describe('handling a request without type', function() {
-      var result, err;
+      let result, err;
 
       before(function(done) {
-        var req = {code: '123'};
-        var res = {};
+        const req = {code: '123'};
+        const res = {};
         res.end = function(data) {
           result = data;
           done();
@@ -222,7 +223,7 @@ describe('Server', function() {
   });
 
   describe('with multiple exchanges', function() {
-    var server = new Server();
+    const server = new Server();
     server.exchange('*', function(req, res, next) {
       if (req.code != '123') { return next(new Error('something is wrong')); }
       req.star = true;
@@ -234,11 +235,11 @@ describe('Server', function() {
     });
 
     describe('handling a request with type', function() {
-      var result, err;
+      let result, err;
 
       before(function(done) {
-        var req = {code: '123'};
-        var res = {};
+        const req = {code: '123'};
+        const res = {};
         res.end = function(data) {
           result = data;
           done();
@@ -260,17 +261,17 @@ describe('Server', function() {
   });
 
   describe('with one exchange that encounters an error', function() {
-    var server = new Server();
+    const server = new Server();
     server.exchange('code', function(req, res, next) {
       next(new Error('something went wrong'));
     });
 
     describe('handling a request with type', function() {
-      var result, err;
+      let result, err;
 
       before(function(done) {
-        var req = {code: '123'};
-        var res = {};
+        const req = {code: '123'};
+        const res = {};
         res.end = function(data) {
           done(new Error('should not be called'));
         };
@@ -289,17 +290,17 @@ describe('Server', function() {
   });
 
   describe('with an exchange that throws an exception', function() {
-    var server = new Server();
+    const server = new Server();
     server.exchange('code', function(req, res, next) {
       throw new Error('something was thrown');
     });
 
     describe('handling a request with type', function() {
-      var result, err;
+      let result, err;
 
       before(function(done) {
-        var req = {};
-        var res = {};
+        const req = {};
+        const res = {};
         res.end = function(data) {
           done(new Error('should not be called'));
         };

@@ -7,12 +7,12 @@
 /* jshint camelcase: false, expr: true */
 
 'use strict';
-var chai = require('chai'),
+const chai = require('chai'),
   token = require('../../lib/grant/token');
 
 describe('grant.token', function() {
   describe('module', function() {
-    var mod = token(function() {});
+    const mod = token(function() {});
 
     it('should be named token', function() {
       expect(mod.name).to.equal('token');
@@ -34,7 +34,7 @@ describe('grant.token', function() {
     function issue() {}
 
     describe('request', function() {
-      var err, out;
+      let err, out;
 
       before(function(done) {
         chai.oauth2orize.grant(token(issue))
@@ -65,7 +65,7 @@ describe('grant.token', function() {
     });
 
     describe('request with scope', function() {
-      var err, out;
+      let err, out;
 
       before(function(done) {
         chai.oauth2orize.grant(token(issue))
@@ -99,7 +99,7 @@ describe('grant.token', function() {
     });
 
     describe('request with list of scopes', function() {
-      var err, out;
+      let err, out;
 
       before(function(done) {
         chai.oauth2orize.grant(token(issue))
@@ -134,7 +134,7 @@ describe('grant.token', function() {
     });
 
     describe('request with list of scopes using scope separator option', function() {
-      var err, out;
+      let err, out;
 
       before(function(done) {
         chai.oauth2orize.grant(token({scopeSeparator: ','}, issue))
@@ -169,7 +169,7 @@ describe('grant.token', function() {
     });
 
     describe('request with list of scopes separated by space using multiple scope separator option', function() {
-      var err, out;
+      let err, out;
 
       before(function(done) {
         chai.oauth2orize.grant(token({scopeSeparator: [' ', ',']}, issue))
@@ -204,7 +204,7 @@ describe('grant.token', function() {
     });
 
     describe('request with list of scopes separated by comma using multiple scope separator option', function() {
-      var err, out;
+      let err, out;
 
       before(function(done) {
         chai.oauth2orize.grant(token({scopeSeparator: [' ', ',']}, issue))
@@ -239,7 +239,7 @@ describe('grant.token', function() {
     });
 
     describe('request with missing client_id parameter', function() {
-      var err, out;
+      let err, out;
 
       before(function(done) {
         chai.oauth2orize.grant(token(issue))
@@ -282,7 +282,7 @@ describe('grant.token', function() {
     }
 
     describe('transaction', function() {
-      var response;
+      let response;
 
       before(function(done) {
         chai.oauth2orize.grant(token(issue))
@@ -309,7 +309,7 @@ describe('grant.token', function() {
     });
 
     describe('transaction with request state', function() {
-      var response;
+      let response;
 
       before(function(done) {
         chai.oauth2orize.grant(token(issue))
@@ -337,7 +337,7 @@ describe('grant.token', function() {
     });
 
     describe('transaction that adds params to response', function() {
-      var response;
+      let response;
 
       before(function(done) {
         chai.oauth2orize.grant(token(issue))
@@ -364,7 +364,7 @@ describe('grant.token', function() {
     });
 
     describe('transaction that adds params including token_type to response', function() {
-      var response;
+      let response;
 
       before(function(done) {
         chai.oauth2orize.grant(token(issue))
@@ -391,7 +391,7 @@ describe('grant.token', function() {
     });
 
     describe('disallowed transaction', function() {
-      var response;
+      let response;
 
       before(function(done) {
         chai.oauth2orize.grant(token(issue))
@@ -418,7 +418,7 @@ describe('grant.token', function() {
     });
 
     describe('disallowed transaction with request state', function() {
-      var response;
+      let response;
 
       before(function(done) {
         chai.oauth2orize.grant(token(issue))
@@ -446,7 +446,7 @@ describe('grant.token', function() {
     });
 
     describe('unauthorized client', function() {
-      var err;
+      let err;
 
       before(function(done) {
         chai.oauth2orize.grant(token(issue))
@@ -476,7 +476,7 @@ describe('grant.token', function() {
     });
 
     describe('encountering an error while issuing token', function() {
-      var err;
+      let err;
 
       before(function(done) {
         chai.oauth2orize.grant(token(issue))
@@ -503,7 +503,7 @@ describe('grant.token', function() {
     });
 
     describe('throwing an error while issuing token', function() {
-      var err;
+      let err;
 
       before(function(done) {
         chai.oauth2orize.grant(token(issue))
@@ -530,7 +530,7 @@ describe('grant.token', function() {
     });
 
     describe('transaction without redirect URL', function() {
-      var err;
+      let err;
 
       before(function(done) {
         chai.oauth2orize.grant(token(issue))
@@ -565,7 +565,7 @@ describe('grant.token', function() {
     }
 
     describe('transaction with response scope', function() {
-      var response;
+      let response;
 
       before(function(done) {
         chai.oauth2orize.grant(token(issue))
