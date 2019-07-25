@@ -4,12 +4,13 @@
 // License text available at https://opensource.org/licenses/MIT
 
 'use strict';
-var OAuth2Error = require('../../lib/errors/oauth2error'),
+const expect = require('chai').expect;
+const OAuth2Error = require('../../lib/errors/oauth2error'),
   TokenError = require('../../lib/errors/tokenerror');
 
 describe('TokenError', function() {
   describe('constructed without a message', function() {
-    var err = new TokenError();
+    const err = new TokenError();
 
     it('should have default properties', function() {
       expect(err.message).to.be.undefined;
@@ -19,7 +20,7 @@ describe('TokenError', function() {
     });
 
     it('should format correctly', function() {
-      //expect(err.toString()).to.equal('AuthorizationError');
+      // expect(err.toString()).to.equal('AuthorizationError');
       expect(err.toString().indexOf('TokenError')).to.equal(0);
     });
 
@@ -30,7 +31,7 @@ describe('TokenError', function() {
   });
 
   describe('constructed with a message', function() {
-    var err = new TokenError('Invalid return URI');
+    const err = new TokenError('Invalid return URI');
 
     it('should have default properties', function() {
       expect(err.message).to.equal('Invalid return URI');
@@ -45,7 +46,7 @@ describe('TokenError', function() {
   });
 
   describe('constructed with a message and invalid_request code', function() {
-    var err = new TokenError('Invalid request', 'invalid_request');
+    const err = new TokenError('Invalid request', 'invalid_request');
 
     it('should have default properties', function() {
       expect(err.message).to.equal('Invalid request');
@@ -56,7 +57,7 @@ describe('TokenError', function() {
   });
 
   describe('constructed with a message and invalid_client code', function() {
-    var err = new TokenError('Invalid client', 'invalid_client');
+    const err = new TokenError('Invalid client', 'invalid_client');
 
     it('should have default properties', function() {
       expect(err.message).to.equal('Invalid client');
@@ -67,7 +68,7 @@ describe('TokenError', function() {
   });
 
   describe('constructed with a message and invalid_grant code', function() {
-    var err = new TokenError('Invalid grant', 'invalid_grant');
+    const err = new TokenError('Invalid grant', 'invalid_grant');
 
     it('should have default properties', function() {
       expect(err.message).to.equal('Invalid grant');
@@ -78,7 +79,7 @@ describe('TokenError', function() {
   });
 
   describe('constructed with a message and unauthorized_client code', function() {
-    var err = new TokenError('Unauthorized client', 'unauthorized_client');
+    const err = new TokenError('Unauthorized client', 'unauthorized_client');
 
     it('should have default properties', function() {
       expect(err.message).to.equal('Unauthorized client');
@@ -89,7 +90,7 @@ describe('TokenError', function() {
   });
 
   describe('constructed with a message and unsupported_grant_type code', function() {
-    var err = new TokenError('Unsupported grant type', 'unsupported_grant_type');
+    const err = new TokenError('Unsupported grant type', 'unsupported_grant_type');
 
     it('should have default properties', function() {
       expect(err.message).to.equal('Unsupported grant type');
@@ -100,7 +101,7 @@ describe('TokenError', function() {
   });
 
   describe('constructed with a message and invalid_scope code', function() {
-    var err = new TokenError('Invalid scope', 'invalid_scope');
+    const err = new TokenError('Invalid scope', 'invalid_scope');
 
     it('should have default properties', function() {
       expect(err.message).to.equal('Invalid scope');
@@ -111,7 +112,7 @@ describe('TokenError', function() {
   });
 
   describe('constructed with a message, code, uri and status', function() {
-    var err = new TokenError('Payment required', 'payment_required', 'http://www.example.com/oauth/help', 402);
+    const err = new TokenError('Payment required', 'payment_required', 'http://www.example.com/oauth/help', 402);
 
     it('should have default properties', function() {
       expect(err.message).to.equal('Payment required');

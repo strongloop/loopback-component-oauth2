@@ -7,7 +7,7 @@
 /* jshint expr: true */
 
 'use strict';
-var chai = require('chai'),
+const chai = require('chai'),
   errorHandler = require('../../lib/middleware/errorHandler'),
   AuthorizationError = require('../../lib/errors/authorizationerror');
 
@@ -18,7 +18,7 @@ describe('errorHandler', function() {
 
   describe('direct mode', function() {
     describe('handling an error', function() {
-      var res;
+      let res;
 
       before(function(done) {
         chai.connect.use(errorHandler())
@@ -41,7 +41,7 @@ describe('errorHandler', function() {
     });
 
     describe('handling an authorization error', function() {
-      var res;
+      let res;
 
       before(function(done) {
         chai.connect.use(errorHandler())
@@ -64,7 +64,7 @@ describe('errorHandler', function() {
     });
 
     describe('handling an authorization error with URI', function() {
-      var res;
+      let res;
 
       before(function(done) {
         chai.connect.use(errorHandler())
@@ -89,7 +89,7 @@ describe('errorHandler', function() {
 
   describe('indirect mode', function() {
     describe('handling an error', function() {
-      var res;
+      let res;
 
       before(function(done) {
         chai.connect.use('express', errorHandler({mode: 'indirect'}))
@@ -116,7 +116,7 @@ describe('errorHandler', function() {
     });
 
     describe('handling an authorization error', function() {
-      var res;
+      let res;
 
       before(function(done) {
         chai.connect.use('express', errorHandler({mode: 'indirect'}))
@@ -143,7 +143,7 @@ describe('errorHandler', function() {
     });
 
     describe('handling an authorization error with URI', function() {
-      var res;
+      let res;
 
       before(function(done) {
         chai.connect.use('express', errorHandler({mode: 'indirect'}))
@@ -170,7 +170,7 @@ describe('errorHandler', function() {
     });
 
     describe('handling an error with state', function() {
-      var res;
+      let res;
 
       before(function(done) {
         chai.connect.use('express', errorHandler({mode: 'indirect'}))
@@ -198,7 +198,7 @@ describe('errorHandler', function() {
     });
 
     describe('handling an error using token response', function() {
-      var res;
+      let res;
 
       before(function(done) {
         chai.connect.use('express', errorHandler({mode: 'indirect'}))
@@ -226,7 +226,7 @@ describe('errorHandler', function() {
     });
 
     describe('handling an authorization error using token response', function() {
-      var res;
+      let res;
 
       before(function(done) {
         chai.connect.use('express', errorHandler({mode: 'indirect'}))
@@ -254,7 +254,7 @@ describe('errorHandler', function() {
     });
 
     describe('handling an authorization error with URI using token response', function() {
-      var res;
+      let res;
 
       before(function(done) {
         chai.connect.use('express', errorHandler({mode: 'indirect'}))
@@ -282,7 +282,7 @@ describe('errorHandler', function() {
     });
 
     describe('handling an error with state using token response', function() {
-      var res;
+      let res;
 
       before(function(done) {
         chai.connect.use('express', errorHandler({mode: 'indirect'}))
@@ -310,7 +310,7 @@ describe('errorHandler', function() {
     });
 
     describe('handling an error using fragment encoding for extension response type', function() {
-      var res;
+      let res;
 
       before(function(done) {
         chai.connect.use('express', errorHandler({mode: 'indirect', fragment: ['token', 'id_token']}))
@@ -340,7 +340,7 @@ describe('errorHandler', function() {
 
   describe('unknown mode', function() {
     describe('handling an error', function() {
-      var err;
+      let err;
 
       before(function(done) {
         chai.connect.use(errorHandler({mode: 'unknown'}))

@@ -7,12 +7,12 @@
 /* jshint expr: true, sub: true */
 
 'use strict';
-var chai = require('chai'),
+const chai = require('chai'),
   transactionLoader = require('../../lib/middleware/transactionLoader'),
   Server = require('../../lib/server');
 
 describe('transactionLoader', function() {
-  var server = new Server();
+  const server = new Server();
   server.deserializeClient(function(id, done) {
     if (id === '1') { return done(null, {id: id, name: 'Test'}); }
     if (id === '2') { return done(null, false); }
@@ -30,7 +30,7 @@ describe('transactionLoader', function() {
   });
 
   describe('handling a request with transaction id in query', function() {
-    var request, err;
+    let request, err;
 
     before(function(done) {
       chai.connect.use(transactionLoader(server))
@@ -72,7 +72,7 @@ describe('transactionLoader', function() {
   });
 
   describe('handling a request with transaction id in body', function() {
-    var request, err;
+    let request, err;
 
     before(function(done) {
       chai.connect.use(transactionLoader(server))
@@ -114,7 +114,7 @@ describe('transactionLoader', function() {
   });
 
   describe('handling a request initiated by deactivated client', function() {
-    var request, err;
+    let request, err;
 
     before(function(done) {
       chai.connect.use(transactionLoader(server))
@@ -153,7 +153,7 @@ describe('transactionLoader', function() {
   });
 
   describe('encountering an error while deserializing client', function() {
-    var request, err;
+    let request, err;
 
     before(function(done) {
       chai.connect.use(transactionLoader(server))
@@ -190,7 +190,7 @@ describe('transactionLoader', function() {
   });
 
   describe('handling a request without transaction id', function() {
-    var request, err;
+    let request, err;
 
     before(function(done) {
       chai.connect.use(transactionLoader(server))
@@ -218,7 +218,7 @@ describe('transactionLoader', function() {
   });
 
   describe('handling a request with transaction id that does not reference transaction', function() {
-    var request, err;
+    let request, err;
 
     before(function(done) {
       chai.connect.use(transactionLoader(server))
@@ -247,7 +247,7 @@ describe('transactionLoader', function() {
   });
 
   describe('handling a request without transactions in session', function() {
-    var request, err;
+    let request, err;
 
     before(function(done) {
       chai.connect.use(transactionLoader(server))
@@ -275,7 +275,7 @@ describe('transactionLoader', function() {
   });
 
   describe('handling a request without a session', function() {
-    var request, err;
+    let request, err;
 
     before(function(done) {
       chai.connect.use(transactionLoader(server))
@@ -292,7 +292,8 @@ describe('transactionLoader', function() {
     it('should error', function() {
       expect(err).to.be.an.instanceOf(Error);
       expect(err.message).to.equal(
-        'OAuth2orize requires session support. Did you forget app.use(express.session(...))?');
+        'OAuth2orize requires session support. Did you forget app.use(express.session(...))?'
+      );
     });
 
     it('should not restore transaction', function() {
@@ -302,7 +303,7 @@ describe('transactionLoader', function() {
 
   describe('with transaction field option', function() {
     describe('handling a request with transaction id in body', function() {
-      var request, err;
+      let request, err;
 
       before(function(done) {
         chai.connect.use(transactionLoader(server, {transactionField: 'txn_id'}))
@@ -346,7 +347,7 @@ describe('transactionLoader', function() {
 
   describe('with session key option', function() {
     describe('handling a request with transaction id in body', function() {
-      var request, err;
+      let request, err;
 
       before(function(done) {
         chai.connect.use(transactionLoader(server, {sessionKey: 'oauth2orize'}))

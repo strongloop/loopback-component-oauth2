@@ -4,11 +4,12 @@
 // License text available at https://opensource.org/licenses/MIT
 
 'use strict';
-var UnorderedList = require('../lib/unorderedlist');
+const UnorderedList = require('../lib/unorderedlist');
+const expect = require('chai').expect;
 
 describe('UnorderedList', function() {
   describe('constructed with a single element array', function() {
-    var ul = new UnorderedList(['a']);
+    const ul = new UnorderedList(['a']);
 
     it('should have correct length', function() {
       expect(ul).to.have.length(1);
@@ -20,7 +21,7 @@ describe('UnorderedList', function() {
     });
 
     it('should be equal to list with same item', function() {
-      var other = new UnorderedList(['a']);
+      const other = new UnorderedList(['a']);
       expect(ul.equalTo(other)).to.be.true;
     });
 
@@ -29,7 +30,7 @@ describe('UnorderedList', function() {
     });
 
     it('should not be equal to list with superset of item', function() {
-      var other = new UnorderedList(['a', 'b']);
+      const other = new UnorderedList(['a', 'b']);
       expect(ul.equalTo(other)).to.be.false;
     });
 
@@ -47,7 +48,7 @@ describe('UnorderedList', function() {
   });
 
   describe('constructed with a multiple element array', function() {
-    var ul = new UnorderedList(['a', 'b']);
+    const ul = new UnorderedList(['a', 'b']);
 
     it('should have correct length', function() {
       expect(ul).to.have.length(2);
@@ -60,22 +61,22 @@ describe('UnorderedList', function() {
     });
 
     it('should be equal to list with same set of items', function() {
-      var other = new UnorderedList(['a', 'b']);
+      const other = new UnorderedList(['a', 'b']);
       expect(ul.equalTo(other)).to.be.true;
     });
 
     it('should be equal to list with same set of items in different order', function() {
-      var other = new UnorderedList(['b', 'a']);
+      const other = new UnorderedList(['b', 'a']);
       expect(ul.equalTo(other)).to.be.true;
     });
 
     it('should not be equal to list with subset of items', function() {
-      var other = new UnorderedList(['a']);
+      const other = new UnorderedList(['a']);
       expect(ul.equalTo(other)).to.be.false;
     });
 
     it('should not be equal to list with superset of items', function() {
-      var other = new UnorderedList(['a', 'b', 'c']);
+      const other = new UnorderedList(['a', 'b', 'c']);
       expect(ul.equalTo(other)).to.be.false;
     });
 
@@ -96,7 +97,7 @@ describe('UnorderedList', function() {
   });
 
   describe('constructed with string', function() {
-    var ul = new UnorderedList('foobar');
+    const ul = new UnorderedList('foobar');
 
     it('should have correct length', function() {
       expect(ul).to.have.length(1);
@@ -109,7 +110,7 @@ describe('UnorderedList', function() {
   });
 
   describe('constructed with space separated string', function() {
-    var ul = new UnorderedList('foo bar');
+    const ul = new UnorderedList('foo bar');
 
     it('should have correct length', function() {
       expect(ul).to.have.length(2);

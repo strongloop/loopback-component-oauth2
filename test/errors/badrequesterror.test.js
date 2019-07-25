@@ -4,18 +4,19 @@
 // License text available at https://opensource.org/licenses/MIT
 
 'use strict';
-var BadRequestError = require('../../lib/errors/badrequesterror');
+const BadRequestError = require('../../lib/errors/badrequesterror');
+const expect = require('chai').expect;
 
 describe('BadRequestError', function() {
   describe('constructed without a message', function() {
-    var err = new BadRequestError();
+    const err = new BadRequestError();
 
     it('should have default properties', function() {
       expect(err.message).to.be.undefined;
     });
 
     it('should format correctly', function() {
-      //expect(err.toString()).to.equal('BadRequestError');
+      // expect(err.toString()).to.equal('BadRequestError');
       expect(err.toString().indexOf('BadRequestError')).to.equal(0);
     });
 
@@ -29,7 +30,7 @@ describe('BadRequestError', function() {
   });
 
   describe('constructed with a message', function() {
-    var err = new BadRequestError('Bad request');
+    const err = new BadRequestError('Bad request');
 
     it('should have default properties', function() {
       expect(err.message).to.equal('Bad request');

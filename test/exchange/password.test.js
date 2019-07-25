@@ -4,8 +4,9 @@
 // License text available at https://opensource.org/licenses/MIT
 
 'use strict';
-var chai = require('chai'),
-  password = require('../../lib/exchange/password');
+const chai = require('chai'),
+  password = require('../../lib/exchange/password'),
+  expect = chai.expect;
 
 describe('exchange.password', function() {
   function issue(client, username, passwd, done) {
@@ -38,7 +39,7 @@ describe('exchange.password', function() {
   });
 
   describe('issuing an access token', function() {
-    var response, err;
+    let response, err;
 
     before(function(done) {
       chai.connect.use(password(issue))
@@ -65,7 +66,7 @@ describe('exchange.password', function() {
   });
 
   describe('issuing an access token and refresh token', function() {
-    var response, err;
+    let response, err;
 
     before(function(done) {
       chai.connect.use(password(issue))
@@ -92,7 +93,7 @@ describe('exchange.password', function() {
   });
 
   describe('issuing an access token and params', function() {
-    var response, err;
+    let response, err;
 
     before(function(done) {
       chai.connect.use(password(issue))
@@ -119,7 +120,7 @@ describe('exchange.password', function() {
   });
 
   describe('issuing an access token, null refresh token, and params', function() {
-    var response, err;
+    let response, err;
 
     before(function(done) {
       chai.connect.use(password(issue))
@@ -146,7 +147,7 @@ describe('exchange.password', function() {
   });
 
   describe('issuing an access token, refresh token, and params with token_type', function() {
-    var response, err;
+    let response, err;
 
     before(function(done) {
       chai.connect.use(password(issue))
@@ -169,7 +170,8 @@ describe('exchange.password', function() {
 
     it('should respond with body', function() {
       expect(response.body).to.equal(
-        '{"access_token":"s3cr1t","refresh_token":"blahblag","token_type":"foo","expires_in":3600}');
+        '{"access_token":"s3cr1t","refresh_token":"blahblag","token_type":"foo","expires_in":3600}'
+      );
     });
   });
 
@@ -181,7 +183,7 @@ describe('exchange.password', function() {
       return done(new Error('something is wrong'));
     }
 
-    var response, err;
+    let response, err;
 
     before(function(done) {
       chai.connect.use(password(issue))
@@ -216,7 +218,7 @@ describe('exchange.password', function() {
       return done(new Error('something is wrong'));
     }
 
-    var response, err;
+    let response, err;
 
     before(function(done) {
       chai.connect.use(password(issue))
@@ -243,7 +245,7 @@ describe('exchange.password', function() {
   });
 
   describe('not issuing an access token', function() {
-    var response, err;
+    let response, err;
 
     before(function(done) {
       chai.connect.use(password(issue))
@@ -268,7 +270,7 @@ describe('exchange.password', function() {
   });
 
   describe('handling a request without username parameter', function() {
-    var response, err;
+    let response, err;
 
     before(function(done) {
       chai.connect.use(password(issue))
@@ -293,7 +295,7 @@ describe('exchange.password', function() {
   });
 
   describe('handling a request without password parameter', function() {
-    var response, err;
+    let response, err;
 
     before(function(done) {
       chai.connect.use(password(issue))
@@ -318,7 +320,7 @@ describe('exchange.password', function() {
   });
 
   describe('encountering an error while issuing an access token', function() {
-    var response, err;
+    let response, err;
 
     before(function(done) {
       chai.connect.use(password(issue))
@@ -340,7 +342,7 @@ describe('exchange.password', function() {
   });
 
   describe('encountering an exception while issuing an access token', function() {
-    var response, err;
+    let response, err;
 
     before(function(done) {
       chai.connect.use(password(issue))
@@ -362,7 +364,7 @@ describe('exchange.password', function() {
   });
 
   describe('handling a request without a body', function() {
-    var response, err;
+    let response, err;
 
     before(function(done) {
       chai.connect.use(password(issue))
@@ -392,7 +394,7 @@ describe('exchange.password', function() {
         return done(new Error('something is wrong'));
       }
 
-      var response, err;
+      let response, err;
 
       before(function(done) {
         chai.connect.use(password({scopeSeparator: ','}, issue))
@@ -429,7 +431,7 @@ describe('exchange.password', function() {
     }
 
     describe('issuing an access token based on scope separated by space', function() {
-      var response, err;
+      let response, err;
 
       before(function(done) {
         chai.connect.use(password({scopeSeparator: [' ', ',']}, issue))
@@ -456,7 +458,7 @@ describe('exchange.password', function() {
     });
 
     describe('issuing an access token based on scope separated by comma', function() {
-      var response, err;
+      let response, err;
 
       before(function(done) {
         chai.connect.use(password({scopeSeparator: [' ', ',']}, issue))
@@ -484,7 +486,7 @@ describe('exchange.password', function() {
   });
 
   describe('with user property option issuing an access token', function() {
-    var response, err;
+    let response, err;
 
     before(function(done) {
       chai.connect.use(password({userProperty: 'client'}, issue))

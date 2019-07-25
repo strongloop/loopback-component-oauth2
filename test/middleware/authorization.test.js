@@ -7,12 +7,12 @@
 /* jshint camelcase: false, expr: true, sub: true */
 
 'use strict';
-var chai = require('chai'),
+const chai = require('chai'),
   authorization = require('../../lib/middleware/authorization'),
   Server = require('../../lib/server');
 
 describe('authorization', function() {
-  var server = new Server();
+  const server = new Server();
   server.serializeClient(function(client, done) {
     if (client.id == '1234' || client.id == '2234' || client.id == '3234') { return done(null, client.id); }
     return done(new Error('something went wrong while serializing client'));
@@ -66,7 +66,7 @@ describe('authorization', function() {
   });
 
   describe('handling a request for authorization', function() {
-    var request, err;
+    let request, err;
 
     before(function(done) {
       chai.connect.use(authorization(server, validate))
@@ -99,7 +99,7 @@ describe('authorization', function() {
     });
 
     it('should store transaction in session', function() {
-      var tid = request.oauth2.transactionID;
+      const tid = request.oauth2.transactionID;
       expect(request.session['authorize'][tid]).to.be.an('object');
       expect(request.session['authorize'][tid].protocol).to.equal('oauth2');
       expect(request.session['authorize'][tid].client).to.equal('1234');
@@ -111,7 +111,7 @@ describe('authorization', function() {
   });
 
   describe('handling a request for authorization with empty query', function() {
-    var request, err;
+    let request, err;
 
     before(function(done) {
       chai.connect.use(authorization(server, validate))
@@ -140,7 +140,7 @@ describe('authorization', function() {
   });
 
   describe('handling a request for authorization with unsupported response type', function() {
-    var request, err;
+    let request, err;
 
     before(function(done) {
       chai.connect.use(authorization(server, validate))
@@ -169,7 +169,7 @@ describe('authorization', function() {
   });
 
   describe('handling a request for authorization from unauthorized client', function() {
-    var request, err;
+    let request, err;
 
     before(function(done) {
       chai.connect.use(authorization(server, validate))
@@ -200,7 +200,7 @@ describe('authorization', function() {
   });
 
   describe('handling a request for authorization from unauthorized client informed via redirect', function() {
-    var request, err;
+    let request, err;
 
     before(function(done) {
       chai.connect.use(authorization(server, validate))
@@ -231,7 +231,7 @@ describe('authorization', function() {
   });
 
   describe('encountering an error thrown while parsing request', function() {
-    var request, err;
+    let request, err;
 
     before(function(done) {
       chai.connect.use(authorization(server, validate))
@@ -258,7 +258,7 @@ describe('authorization', function() {
   });
 
   describe('encountering an error while validating client', function() {
-    var request, err;
+    let request, err;
 
     before(function(done) {
       chai.connect.use(authorization(server, validate))
@@ -287,7 +287,7 @@ describe('authorization', function() {
   });
 
   describe('encountering an error thrown while validating client', function() {
-    var request, err;
+    let request, err;
 
     before(function(done) {
       chai.connect.use(authorization(server, validate))
@@ -314,7 +314,7 @@ describe('authorization', function() {
   });
 
   describe('encountering an error while serializing client', function() {
-    var request, err;
+    let request, err;
 
     before(function(done) {
       chai.connect.use(authorization(server, validate))
@@ -348,7 +348,7 @@ describe('authorization', function() {
   });
 
   describe('handling a request for authorization without a session', function() {
-    var request, err;
+    let request, err;
 
     before(function(done) {
       chai.connect.use(authorization(server, validate))
@@ -366,7 +366,8 @@ describe('authorization', function() {
     it('should error', function() {
       expect(err).to.be.an.instanceOf(Error);
       expect(err.message).to.equal(
-        'OAuth2orize requires session support. Did you forget app.use(express.session(...))?');
+        'OAuth2orize requires session support. Did you forget app.use(express.session(...))?'
+      );
     });
 
     it('should not start transaction', function() {
@@ -383,7 +384,7 @@ describe('authorization', function() {
     }
 
     describe('handling a request for authorization', function() {
-      var request, err;
+      let request, err;
 
       before(function(done) {
         chai.connect.use(authorization(server, validate))
@@ -417,7 +418,7 @@ describe('authorization', function() {
       });
 
       it('should store transaction in session', function() {
-        var tid = request.oauth2.transactionID;
+        const tid = request.oauth2.transactionID;
         expect(request.session['authorize'][tid]).to.be.an('object');
         expect(request.session['authorize'][tid].protocol).to.equal('oauth2');
         expect(request.session['authorize'][tid].client).to.equal('1234');
@@ -439,7 +440,7 @@ describe('authorization', function() {
     }
 
     describe('handling a request for authorization', function() {
-      var request, err;
+      let request, err;
 
       before(function(done) {
         chai.connect.use(authorization(server, validate))
@@ -473,7 +474,7 @@ describe('authorization', function() {
       });
 
       it('should store transaction in session', function() {
-        var tid = request.oauth2.transactionID;
+        const tid = request.oauth2.transactionID;
         expect(request.session['authorize'][tid]).to.be.an('object');
         expect(request.session['authorize'][tid].protocol).to.equal('oauth2');
         expect(request.session['authorize'][tid].client).to.equal('1234');
@@ -495,7 +496,7 @@ describe('authorization', function() {
     }
 
     describe('handling a request for authorization', function() {
-      var request, err;
+      let request, err;
 
       before(function(done) {
         chai.connect.use(authorization(server, validate))
@@ -528,7 +529,7 @@ describe('authorization', function() {
       });
 
       it('should store transaction in session', function() {
-        var tid = request.oauth2.transactionID;
+        const tid = request.oauth2.transactionID;
         expect(request.session['authorize'][tid]).to.be.an('object');
         expect(request.session['authorize'][tid].protocol).to.equal('oauth2');
         expect(request.session['authorize'][tid].client).to.equal('1234');
@@ -542,7 +543,7 @@ describe('authorization', function() {
 
   describe('with id length option', function() {
     describe('handling a request for authorization', function() {
-      var request, err;
+      let request, err;
 
       before(function(done) {
         chai.connect.use(authorization(server, {idLength: 12}, validate))
@@ -575,7 +576,7 @@ describe('authorization', function() {
       });
 
       it('should store transaction in session', function() {
-        var tid = request.oauth2.transactionID;
+        const tid = request.oauth2.transactionID;
         expect(request.session['authorize'][tid]).to.be.an('object');
         expect(request.session['authorize'][tid].protocol).to.equal('oauth2');
         expect(request.session['authorize'][tid].client).to.equal('1234');
@@ -589,7 +590,7 @@ describe('authorization', function() {
 
   describe('with session key option', function() {
     describe('handling a request for authorization', function() {
-      var request, err;
+      let request, err;
 
       before(function(done) {
         chai.connect.use(authorization(server, {sessionKey: 'oauth2z'}, validate))
@@ -622,7 +623,7 @@ describe('authorization', function() {
       });
 
       it('should store transaction in session', function() {
-        var tid = request.oauth2.transactionID;
+        const tid = request.oauth2.transactionID;
         expect(request.session['oauth2z'][tid]).to.be.an('object');
         expect(request.session['oauth2z'][tid].protocol).to.equal('oauth2');
         expect(request.session['oauth2z'][tid].client).to.equal('1234');
@@ -635,7 +636,7 @@ describe('authorization', function() {
   });
 
   describe('server without registered grants', function() {
-    var server = new Server();
+    const server = new Server();
     server.serializeClient(function(client, done) {
       return done(null, client.id);
     });
@@ -648,7 +649,7 @@ describe('authorization', function() {
     }
 
     describe('handling a request for authorization', function() {
-      var request, err;
+      let request, err;
 
       before(function(done) {
         chai.connect.use(authorization(server, validate))

@@ -4,8 +4,9 @@
 // License text available at https://opensource.org/licenses/MIT
 
 'use strict';
-var oauth2orize = require('..').oauth2orize,
+const oauth2orize = require('..').oauth2orize,
   Server = require('../lib/server');
+const expect = require('chai').expect;
 
 describe('oauth2orize', function() {
   it('should export createServer', function() {
@@ -49,7 +50,7 @@ describe('oauth2orize', function() {
 
   describe('.createServer', function() {
     it('should return a server', function() {
-      var s = oauth2orize.createServer();
+      const s = oauth2orize.createServer();
       expect(s).to.be.an.instanceOf(Server);
     });
   });

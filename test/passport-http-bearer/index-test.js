@@ -4,10 +4,10 @@
 // License text available at https://opensource.org/licenses/MIT
 
 'use strict';
-var vows = require('vows');
-var assert = require('assert');
-var util = require('util');
-var bearer = require('../../lib/passport-http-bearer/index');
+const vows = require('vows');
+const assert = require('assert');
+const util = require('util');
+const bearer = require('../../lib/passport-http-bearer/index');
 
 vows.describe('passport-http-bearer').addBatch({
 
